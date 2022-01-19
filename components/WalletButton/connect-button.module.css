@@ -4,6 +4,7 @@
 .container .connect-btn {
   display: flex;
   color: white;
+  align-items: center;
 }
 
 .container .connect-btn span {
