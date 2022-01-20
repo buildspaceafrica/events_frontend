@@ -1,0 +1,37 @@
+.input__con {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  input {
+    width: 446px;
+    height: 56px;
+    background: rgba(184, 186, 191, 0.04);
+    border: 1px solid rgba(184, 186, 191, 0.2);
+    box-sizing: border-box;
+    padding-left: 20px;
+    color: rgb(187, 181, 181);
+  }
+  input:focus {
+    outline: none;
+    border: 2px solid rgba(179, 177, 177, 0.37);
+  }
+  span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    color: #b8babf;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
