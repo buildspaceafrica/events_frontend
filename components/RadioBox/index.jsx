@@ -28,7 +28,7 @@ function RadioBox({ formik, options, name }) {
                 value={item}
                 onClick={() => toggleInput(item)}
               />
-              <span>{item}</span>
+              <span className="text-white">{item}</span>
             </label>
           </div>
         );

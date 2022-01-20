@@ -15,6 +15,10 @@ module.exports = {
       "2xl": "1536px",
       "3xl": "1600px",
     },
+    colors: {
+      primaryBg: "#0B0106",
+      white: "#fff",
+    },
     container: {
       center: true,
       padding: {
