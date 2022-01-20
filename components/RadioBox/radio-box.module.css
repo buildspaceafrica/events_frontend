@@ -9,7 +9,8 @@
 }
 
 .container button.true {
-  background: -webkit-linear-gradient(45deg, #6699ff, #ff3366 100%);
+  border: none;
+  background: -webkit-linear-gradient(0deg, #6699ff, #ff3366 100%);
 }
 
 .container label {

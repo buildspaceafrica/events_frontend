@@ -16,7 +16,7 @@ function RadioBox({ formik, options, name }) {
             className={`${styles["container"]} flex items-center`}
           >
             <button
-              className={` mr-2 ${selectedItem === item && styles["true"]}`}
+              className={`mr-2 ${selectedItem === item && styles["true"]}`}
               onClick={() => toggleInput(item)}
             >
               <CheckboxIcon className={`${styles["checkbox"]}`} />
