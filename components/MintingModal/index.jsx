@@ -43,7 +43,9 @@ function MintingModal({ isActive, setIsActive }) {
           Mint your NFT Ticket
         </p>
         <p>Will you attend the event physically?</p>
-        <RadioBox name="attending" options={["Yes", "No"]} />
+        <div className="my-2">
+          <RadioBox name="attending" options={["Yes", "No"]} />
+        </div>
         <p>You sef know say Chidi Sabi the work sha! 🔥😉</p>
       </div>
     </div>
