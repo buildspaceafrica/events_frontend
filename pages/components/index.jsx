@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Header, MintingModal } from "../../components";
 import Button from "../../components/Button";
+import { Header, MintingModal, RadioBox } from "../../components";
 
 function Components(props) {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
@@ -20,7 +20,15 @@ function Components(props) {
             isActive={isDisplayingModal}
             setIsActive={setIsDisplayingModal}
           />
-          <Button type="primary" text="Hello" icon={true} />
+          <p className="my-4">Button</p>
+          <Button
+            type="primary"
+            text="Hello"
+            icon={true}
+            onClick={() => setIsDisplayingModal(true)}
+          />
+          <p className="my-4">Radio Box</p>
+          <RadioBox name="attending" options={["Yes", "No"]} />
         </section>
       </main>
     </>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { RadioBox } from "../../components";
 
 import styles from "./minting-modal.module.css";
 
@@ -18,7 +19,7 @@ function MintingModal({ isActive, setIsActive }) {
       containerRef.current.style.display = "flex";
       setTimeout(() => {
         setContainerClass((value) => (value += ` ${styles["active"]}`));
-      }, 100);
+      }, 50);
     }
     if (!isActive) {
       document.body.style.overflow = "auto";
@@ -41,6 +42,10 @@ function MintingModal({ isActive, setIsActive }) {
         <p className="mb-3 green-gradient-text text-xl font-extrabold">
           Mint your NFT Ticket
         </p>
+        <p>Will you attend the event physically?</p>
+        <div className="my-2">
+          <RadioBox name="attending" options={["Yes", "No"]} />
+        </div>
         <p>You sef know say Chidi Sabi the work sha! 🔥😉</p>
       </div>
     </div>
