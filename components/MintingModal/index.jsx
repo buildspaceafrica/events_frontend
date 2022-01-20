@@ -18,7 +18,7 @@ function MintingModal({ isActive, setIsActive }) {
       containerRef.current.style.display = "flex";
       setTimeout(() => {
         setContainerClass((value) => (value += ` ${styles["active"]}`));
-      }, 100);
+      }, 50);
     }
     if (!isActive) {
       document.body.style.overflow = "auto";
