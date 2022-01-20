@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Header, MintingModal } from "../../components";
+import Button from "../../components/Button";
 
 function Components(props) {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
@@ -19,6 +20,7 @@ function Components(props) {
             isActive={isDisplayingModal}
             setIsActive={setIsDisplayingModal}
           />
+          <Button type="primary" text="Hello" icon={true} />
         </section>
       </main>
     </>

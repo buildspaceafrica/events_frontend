@@ -1,0 +1,31 @@
+.button__con {
+  width: 190px;
+  height: 50px;
+  background: linear-gradient(90deg, #f26474 0%, #f46a49 48.88%, #fdcb97 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    margin-right: 10px;
+  }
+}
+
+.sec__button__con {
+  width: 123px;
+  height: 50px;
+  border: 2px solid #b8babf;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #b8babf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
