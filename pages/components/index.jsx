@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header, MintingModal } from "../../components";
+import { Header, MintingModal, RadioBox } from "../../components";
 
 function Components(props) {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
@@ -19,6 +19,8 @@ function Components(props) {
             isActive={isDisplayingModal}
             setIsActive={setIsDisplayingModal}
           />
+          <p className="my-4">Radio Box</p>
+          <RadioBox name="attending" options={["Yes", "No"]} />
         </section>
       </main>
     </>
