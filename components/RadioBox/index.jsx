@@ -9,26 +9,30 @@ function RadioBox({ formik, options, name }) {
   };
   return (
     <>
-      {options.map((item) => (
-        <div key={item} className={`${styles["container"]} flex items-center`}>
-          <button
-            className={` mr-2 ${selectedItem === item && styles["true"]}`}
-            onClick={() => toggleInput(item)}
+      {options.map((item) => {
+        return (
+          <div
+            key={item}
+            className={`${styles["container"]} flex items-center`}
           >
-            <CheckboxIcon className={`${styles["checkbox"]}`} />
-          </button>
-          <label htmlFor={item}>
-            <input
-              type="radio"
-              id={item}
-              name={name}
-              value={item}
+            <button
+              className={` mr-2 ${selectedItem === item && styles["true"]}`}
               onClick={() => toggleInput(item)}
-            />
-            <span>{item}</span>
-          </label>
-        </div>
-      ))}
+            >
+              <CheckboxIcon className={`${styles["checkbox"]}`} />
+            </button>
+            <label htmlFor={styles[name]}>
+              <input
+                type="radio"
+                name={name}
+                value={item}
+                onClick={() => toggleInput(item)}
+              />
+              <span>{item}</span>
+            </label>
+          </div>
+        );
+      })}
     </>
   );
 }

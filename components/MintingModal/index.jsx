@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { RadioBox } from "../../components";
 
 import styles from "./minting-modal.module.css";
 
@@ -41,6 +42,8 @@ function MintingModal({ isActive, setIsActive }) {
         <p className="mb-3 green-gradient-text text-xl font-extrabold">
           Mint your NFT Ticket
         </p>
+        <p>Will you attend the event physically?</p>
+        <RadioBox name="attending" options={["Yes", "No"]} />
         <p>You sef know say Chidi Sabi the work sha! 🔥😉</p>
       </div>
     </div>
