@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useState } from "react";
 import { Header, MintingModal, RadioBox } from "../../components";
 
@@ -5,6 +6,20 @@ function Components(props) {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
   return (
     <>
+      <Head>
+        <link rel="icon" href="./favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="Welcome to the official launch of the first community event by Buildspace Africa. We are an extension of the buildspace community that aims to help africans to explore Web3 and the Blockchain, create amazing solutions and improve Web3 Adoption on the Continent."
+        />
+        <meta
+          name="keywords"
+          content="Buildspace Africa, Buildspace, Web3, Blockchain, Chidiebere Ekennia, Joshua Nwankwo"
+        ></meta>
+        <title>BuildSpace Africa | Components</title>
+      </Head>
       <Header />
       <main>
         <section className="container">
