@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { RadioBox } from "../../components";
+import Button from "../Button";
+import Input from "../Input";
 
 import styles from "./minting-modal.module.css";
 
@@ -42,11 +44,37 @@ function MintingModal({ isActive, setIsActive }) {
         <p className="mb-3 green-gradient-text text-xl font-extrabold">
           Mint your NFT Ticket
         </p>
+        <br className="my-5" />
+
+        <Input label="Enter emaill address" placeholder="name@domain.com" />
+        <br className="my-5" />
+
+        <Input
+          label="Enter your Full Name"
+          placeholder="name"
+          msg="You will recieve your NFT through this email"
+        />
+        <br className="my-5" />
+
         <p>Will you attend the event physically?</p>
         <div className="my-2">
           <RadioBox name="attending" options={["Yes", "No"]} />
         </div>
-        <p>You sef know say Chidi Sabi the work sha! 🔥😉</p>
+        <br className="my-5" />
+        <div className="flex justify-end">
+          <Button
+            text="Cancle"
+            icon={true}
+            onClick={() => setIsDisplayingModal(true)}
+          />
+
+          <Button
+            type="primary"
+            text="Continue"
+            onClick={() => setIsDisplayingModal(true)}
+          />
+        </div>
+        {/* <p>You sef know say Chidi Sabi the work sha! 🔥😉</p> */}
       </div>
     </div>
   );

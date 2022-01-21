@@ -1,13 +1,19 @@
-import react from "react";
-import { Header } from "../../components";
+import react, { useState } from "react";
+import { Header, MintingModal } from "../../components";
 import Button from "../../components/Button";
 import Time from "../../components/Time";
 import Video from "../../components/video";
 import styles from "./event.module.scss";
 
 function Event() {
+  const [isDisplayingModal, setIsDisplayingModal] = useState(false);
+
   return (
     <div className={styles.event__con}>
+      <MintingModal
+        isActive={isDisplayingModal}
+        setIsActive={setIsDisplayingModal}
+      />
       <div className={styles.event__inner__con}>
         <Header />
         <div className={`${styles.container} container`}>
@@ -20,7 +26,12 @@ function Event() {
               Secure your position for a spot at the physical event by minting
               an NFT ticket that would be required to attend the event.
             </h6>
-            <Button type="primary" text="Mint NFT" icon={true} />
+            <Button
+              type="primary"
+              text="Mint NFT"
+              icon={true}
+              onClick={() => setIsDisplayingModal(true)}
+            />
           </div>
           <div className={styles.right__con}>
             <Video />
@@ -31,12 +42,10 @@ function Event() {
               <Time number="52" />
             </div>
             <div>
-                <div>
-                    <span>
-                        
-                    </span>
-                </div>
-                <div></div>
+              <div>
+                <span></span>
+              </div>
+              <div></div>
             </div>
           </div>
         </div>
