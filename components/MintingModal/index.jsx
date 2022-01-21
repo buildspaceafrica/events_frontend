@@ -62,11 +62,7 @@ function MintingModal({ isActive, setIsActive }) {
         </div>
         <br className="my-5" />
         <div className="flex justify-end">
-          <Button
-            text="Cancle"
-            icon={true}
-            onClick={() => setIsDisplayingModal(true)}
-          />
+          <Button text="Cancle" icon={true} onClick={() => closeModal()} />
 
           <Button
             type="primary"
