@@ -1,5 +1,5 @@
 .event__con {
-  height: max-content;
+  height: 100%;
   width: 100vw;
   background-image: url("/pattern.svg");
   .event__inner__con {
@@ -18,7 +18,6 @@
       display: flex;
       div {
         width: 100%;
-        // border: 1px solid green;
       }
       .left__con {
         display: flex;
@@ -62,6 +61,40 @@
           display: flex;
           justify-content: space-between;
           margin-top: 20px;
+        }
+        .clock__bottom {
+          margin-top: 30px;
+          // height: 100px;
+          display: flex;
+          justify-content: space-between;
+          .clock__bottom__left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            span {
+              display: flex;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 24px;
+              color: #b8babf;
+            }
+          }
+          .clock__bottom__right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            h1 {
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 24px;
+              background: -webkit-linear-gradient(45deg, #6699ff, #ff3366 100%);
+              -webkit-background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
         }
       }
     }

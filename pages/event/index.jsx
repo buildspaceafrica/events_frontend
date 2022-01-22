@@ -1,4 +1,5 @@
 import react, { useState } from "react";
+import { Add, Calendar, Clock } from "../../assets/images/svgs";
 import { Header, MintingModal } from "../../components";
 import Button from "../../components/Button";
 import Time from "../../components/Time";
@@ -41,11 +42,21 @@ function Event() {
               <Time type="minute" number="23" />
               <Time number="52" />
             </div>
-            <div>
-              <div>
-                <span></span>
+            <div className={styles.clock__bottom}>
+              <div className={styles.clock__bottom__left}>
+                <span>
+                  <Calendar className="mr-2" />
+                  29th January, 2022
+                </span>
+                <span className="mt-5">
+                  <Clock className="mr-2" />
+                  10:00AM (WAT)
+                </span>
               </div>
-              <div></div>
+              <div className={styles.clock__bottom__right}>
+                <Add className="mr-2" />
+                <h1>Add to Calender</h1>
+              </div>
             </div>
           </div>
         </div>
