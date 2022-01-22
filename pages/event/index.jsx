@@ -17,7 +17,7 @@ function Event() {
       />
       <div className={styles.event__inner__con}>
         <Header />
-        <div className={`${styles.container} container`}>
+        <div className={`${styles.container} container md:flex `}>
           <div className={styles.left__con}>
             <h5>Welcome to a new era!</h5>
             <h1>

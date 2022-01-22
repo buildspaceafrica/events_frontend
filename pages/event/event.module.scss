@@ -16,6 +16,7 @@
     .container {
       width: 100%;
       display: flex;
+      padding-top: 50px;
       div {
         width: 100%;
       }
@@ -96,6 +97,38 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1010px) {
+  .container {
+    flex-wrap: wrap;
+    .left__con {
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-size: 42px !important;
+        line-height: 50px !important;
+        text-align: center;
+      }
+      h6 {
+        font-size: 14px !important;
+        line-height: 24px !important;
+        text-align: center;
+        width: 90% !important;
+      }
+      button {
+        margin-top: 20px;
+      }
+    }
+    .right__con {
+      display: flex;
+      flex-direction: column-reverse;
+      .clock__bottom {
+        padding-top: 20px;
+        padding-bottom: 30px;
       }
     }
   }

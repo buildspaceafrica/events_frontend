@@ -12,17 +12,11 @@
   transition: all 0.3s ease-in-out;
   opacity: 0;
   z-index: 1;
-  /* visibility: hidden; */
 }
 
-.container {
-  /* display: none; */
-}
 
 .container.active {
   opacity: 1;
-  /* z-index: 0; */
-  /* visibility: visible; */
   display: flex;
 }
 
