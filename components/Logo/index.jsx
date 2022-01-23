@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { logoImage } from "../../assets/images/pngs";
+import styles from "./logo.module.scss";
 
 function Logo(props) {
   return (
@@ -10,7 +11,11 @@ function Logo(props) {
           <Image width={34} height={34} src={logoImage} alt="" />
         </div>
         <div>
-          <span className="secondary-text text-white text-xl">buildspace</span>
+          <span
+            className={`${styles.logo__text} secondary-text text-white text-xl`}
+          >
+            buildspace
+          </span>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 .time__con {
-  width: 120px !important;
-  height: 126px;
+  // width: 120px !important;
+  width: 21% !important;
+  height: 100px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
   display: flex;
@@ -8,6 +9,8 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  border: 2px solid gray;
+  border-bottom: 0px;
   h1 {
     font-style: normal;
     font-weight: bold;
@@ -26,21 +29,21 @@
     margin-right: 0px;
   }
   .day {
-    height: 8px;
+    height: 6px;
     width: 100%;
     position: absolute;
     bottom: 0;
     background: linear-gradient(93.96deg, #6699ff 0%, #ff3366 100%);
   }
   .hour {
-    height: 8px;
+    height: 6px;
     width: 100%;
     position: absolute;
     top: 0;
     background: linear-gradient(93.96deg, #d6ff7f 0%, #00b3cc 100%);
   }
   .minute {
-    height: 8px;
+    height: 6px;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -52,10 +55,23 @@
     );
   }
   .second {
-    height: 8px;
+    height: 6px;
     width: 100%;
     position: absolute;
     top: 0;
     background: linear-gradient(93.96deg, #ffcc33 0%, #e233ff 100%);
+  }
+}
+
+@media screen and (max-width: 1197px) {
+  .time__con {
+    // width: 80px !important;
+    height: 96px !important;
+    h1 {
+      font-size: 42px !important;
+    }
+    h5 {
+      font-size: 16px !important;
+    }
   }
 }

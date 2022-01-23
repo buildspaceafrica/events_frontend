@@ -1,22 +1,23 @@
 .event__con {
-  height: 100%;
+  height: 100vh;
   width: 100vw;
-  background-image: url("/pattern.svg");
+  background-image: url("/pattern.png");
+  background-size: cover !important;
+  object-fit: cover;
   .event__inner__con {
     height: 100%;
     width: 100%;
-    background: olive;
-    background: radial-gradient(
-      26.73% 32.46% at 50% 50%,
-      #0b0106a8 0%,
-      #0b0106ed 100%
-    );
+    // background: radial-gradient(
+    //   26.73% 32.46% at 50% 50%,
+    //   #0b0106a8 0%,
+    //   #0b0106ed 100%
+    // );
     padding-bottom: 50px;
 
     .container {
       width: 100%;
       display: flex;
-      padding-top: 50px;
+      // padding-top: 50px;
       div {
         width: 100%;
       }

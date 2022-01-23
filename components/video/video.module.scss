@@ -1,14 +1,16 @@
 .video__con {
-  height: 448px;
+  height: 350px;
   width: 100%;
   //   background: linear-gradient(
   //     180deg,
   //     rgba(0, 0, 0, 0) 0%,
   //     rgba(11, 1, 6, 0.85) 82.58%
   //   );
+  overflow-y: hidden;
   position: relative;
   span {
     width: 100% !important;
+    // height: 100% !important;
   }
   .video__action {
     position: absolute;
@@ -25,5 +27,11 @@
       color: #ffffff;
       padding-left: 10px;
     }
+  }
+}
+
+@media screen and (max-width: 1010px) {
+  .video__con {
+    margin-top: 50px;
   }
 }
