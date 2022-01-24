@@ -25,12 +25,14 @@ function Countdown(props) {
       difference -= minutes * 60;
 
       const seconds = Math.round(difference % 60);
+
       const timeDetails = { days, hours, minutes, seconds };
       for (const key in timeDetails) {
         if (timeDetails[key].toString().length < 2)
           timeDetails[key] = `0${timeDetails[key]}`;
-        if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
       }
+      if (seconds == "60") minutes = timeLeft.minutes;
+      if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
 
       return timeDetails;
     };
