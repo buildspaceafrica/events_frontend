@@ -30,4 +30,4 @@ function Button({ text, onClick, icon, type }) {
   }
 }
 
-export default Button;
+export { Button };

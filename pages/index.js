@@ -1,77 +1,68 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import { useState } from "react";
+import { Add, Calendar, Clock } from "../assets/images/svgs";
+import { Header, MintingModal, Button, Video, Countdown } from "../components";
+import styles from "./index-page.module.scss";
 
-export default function Home() {
+function IndexPage() {
+  const [isDisplayingModal, setIsDisplayingModal] = useState(false);
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <link rel="icon" href="./favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta
-          name="description"
-          content="Welcome to the official launch of the first community event by Buildspace Africa. We are an extension of the buildspace community that aims to help africans to explore Web3 and the Blockchain, create amazing solutions and improve Web3 Adoption on the Continent."
-        />
-        <meta
-          name="keywords"
-          content="Buildspace Africa, Buildspace, Web3, Blockchain, Chidiebere Ekennia, Joshua Nwankwo"
-        ></meta>
-        <title>BuildSpace Africa | Home</title>
-      </Head>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={styles.event__con}>
+      <MintingModal
+        isActive={isDisplayingModal}
+        setIsActive={setIsDisplayingModal}
+      />
+      <div className={styles.event__inner__con}>
+        <Header />
+        <div
+          className={`${styles.container} container md:flex flex py-8 lg:pt-5`}
         >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+          <div className={`lg:mt-10 ${styles.left__con}`}>
+            <h5 className="hidden md:block">Welcome to a new era!</h5>
+            <h1>
+              Buildspace <span>Africa</span> Conference 2022 is coming!
+            </h1>
+            <h6 className="pt-5">
+              Secure your position for a spot at the physical event by minting
+              an NFT ticket that would be required to attend the event.
+            </h6>
+            <div className="py-12 flex justify-center lg:justify-start">
+              <Button
+                type="primary"
+                text="Mint NFT"
+                icon={true}
+                onClick={() => setIsDisplayingModal(true)}
+              />
+            </div>
+          </div>
+          <div className={`${styles.right__con} flex flex-col`}>
+            <div className="my-10 lg:my-0 order-3 md:order-1">
+              <Video />
+            </div>
+            <div className={`order-1 `}>
+              <Countdown />
+            </div>
+            <div className={`order-2 md:order-3 ${styles.clock__bottom}`}>
+              <div className={styles.clock__bottom__left}>
+                <span>
+                  <Calendar className="mr-2" />
+                  29th January, 2022
+                </span>
+                <span className="mt-5">
+                  <Clock className="mr-2" />
+                  10:00AM (WAT)
+                </span>
+              </div>
+              <div className={styles.clock__bottom__right}>
+                <Add className="mr-2" />
+                <h1>Add to Calender</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+
+export default IndexPage;

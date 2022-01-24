@@ -1,34 +1,36 @@
 .event__con {
   height: 100vh;
-  width: 100vw;
-  background-image: url(/pattern.png);
+  width: 100%;
+  background-color: #0c0106;
+  background-image: url("../assets/images/pngs/background.png");
   background-size: cover !important;
   -o-object-fit: cover;
   object-fit: cover;
   overflow-y: hidden;
   background-position: center;
+  .bg-img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    span {
+      height: 100% !important;
+      width: 100% !important;
+      background-color: #0c0106;
+    }
+  }
   .event__inner__con {
     height: 100%;
     width: 100%;
     overflow-y: auto;
-    // background: radial-gradient(
-    //   26.73% 32.46% at 50% 50%,
-    //   #0b0106a8 0%,
-    //   #0b0106ed 100%
-    // );
-    // padding-bottom: 50px;
 
     .container {
       width: 100%;
       display: flex;
-      // padding-top: 50px;
       div {
         width: 100%;
       }
       .left__con {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         h5 {
           font-style: normal;
           font-weight: bold;
@@ -55,7 +57,6 @@
           font-size: 16px;
           line-height: 24px;
           color: #b8babf;
-          // margin: 30px 0px;
           width: 399px;
         }
       }
@@ -63,14 +64,7 @@
         img {
           width: 100%;
         }
-        .clock__con {
-          display: flex;
-          justify-content: space-between;
-          // margin-top: 50px;
-        }
         .clock__bottom {
-          // margin-top: 30px;
-          // height: 100px;
           display: flex;
           justify-content: space-between;
           .clock__bottom__left {
@@ -124,33 +118,6 @@
         text-align: center;
         width: 90% !important;
       }
-      button {
-        margin-top: 20px;
-      }
-    }
-    .right__con {
-      display: flex;
-      flex-direction: column-reverse;
-      .clock__bottom {
-        // padding-top: 20px;
-        // padding-bottom: 30px;
-      }
-    }
-  }
-}
-
-@media screen and (min-height: 700px) {
-  .event__inner__con {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .container {
-      height: 100%;
-    }
-    .right__con {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
   }
 }

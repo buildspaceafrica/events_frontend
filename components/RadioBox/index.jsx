@@ -13,7 +13,7 @@ function RadioBox({ formik, options, name }) {
         return (
           <div
             key={item}
-            className={`${styles["container"]} flex items-center`}
+            className={`${styles["container"]} mb-3 flex items-center`}
           >
             <button
               className={`mr-2 ${selectedItem === item && styles["true"]}`}

@@ -1,5 +1,5 @@
 .video__con {
-  height: 300px;
+  height: 350px;
   width: 100%;
   //   background: linear-gradient(
   //     180deg,
@@ -30,8 +30,9 @@
   }
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (min-width: 992px) {
   .video__con {
-    margin-top: 50px;
+    // margin-top: 50px;
+    height: 320px;
   }
 }

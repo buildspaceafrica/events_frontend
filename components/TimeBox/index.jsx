@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./time.module.scss";
+import styles from "./time-box.module.scss";
 
-function Time({ number, type }) {
+function TimeBox({ number, type }) {
   return (
-    <div className={styles.time__con}>
+    <div className={`md:py-4 ${styles.time__con}`}>
       <h1>{number}</h1>
       <h5>
         {type === "day"
@@ -29,4 +29,4 @@ function Time({ number, type }) {
   );
 }
 
-export default Time;
+export { TimeBox };

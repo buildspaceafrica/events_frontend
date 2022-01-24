@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Button from "../../components/Button";
 import { Header, MintingModal, RadioBox } from "../../components";
 import Input from "../../components/Input";
-import Time from "../../components/Time";
+import TimeBox from "../../components/TimeBox";
 
 function Components(props) {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
@@ -68,7 +68,7 @@ function Components(props) {
             msg="You will recieve your NFT through this email"
           />
           <br className="my-5" />
-          <p className="my-4 text-white ">Time</p>
+          <p className="my-4 text-white ">TimeBox</p>
           <div
             className="flex"
             style={{
@@ -77,10 +77,10 @@ function Components(props) {
               justifyContent: "space-between",
             }}
           >
-            <Time type="day" number="05" />
-            <Time type="hour" number="04" />
-            <Time type="minute" number="23" />
-            <Time number="52" />
+            <TimeBox type="day" number="05" />
+            <TimeBox type="hour" number="04" />
+            <TimeBox type="minute" number="23" />
+            <TimeBox number="52" />
           </div>
         </section>
       </main>
