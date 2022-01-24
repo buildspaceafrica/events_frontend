@@ -31,7 +31,7 @@ function IndexPage() {
         <div className={styles.event__inner__con}>
           <Header />
           <div
-            className={`${styles.container} container md:flex flex py-8 lg:pt-5`}
+            className={`${styles.container} container py-8 lg:pt-5 grid grid-cols-2 lg:gap-x-10`}
           >
             <div className={`lg:mt-10 ${styles.left__con}`}>
               <h5 className="hidden md:block">Welcome to a new era!</h5>
