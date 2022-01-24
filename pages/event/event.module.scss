@@ -62,7 +62,7 @@
         .clock__con {
           display: flex;
           justify-content: space-between;
-          margin-top: 20px;
+          margin-top: 50px;
         }
         .clock__bottom {
           margin-top: 30px;
@@ -131,6 +131,22 @@
         padding-top: 20px;
         padding-bottom: 30px;
       }
+    }
+  }
+}
+
+@media screen and (min-height: 700px) {
+  .event__inner__con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .container {
+      height: 100%;
+    }
+    .right__con {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 }
