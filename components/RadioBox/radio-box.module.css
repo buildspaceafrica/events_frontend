@@ -38,3 +38,10 @@
     fill: white;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .container button {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -23,7 +23,7 @@ function Components(props) {
         />
         <meta
           name="keywords"
-          content="Buildspace Africa, Buildspace, Web3, Blockchain, Chidiebere Ekennia, Joshua Nwankwo"
+          content="Buildspace Africa, Buildspace, Let's Talk Web3, Web3, Blockchain, Chidiebere Ekennia, Joshua Nwankwo"
         ></meta>
         <title>BuildSpace Africa | Components</title>
       </Head>
