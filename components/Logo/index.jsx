@@ -8,6 +8,7 @@ function Logo(props) {
     <div className={`${styles["container"]}`}>
       <div className="flex items-center">
         <div className="pr-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img width={34} height={34} src={logoImage.src} alt="" />
         </div>
         <div>

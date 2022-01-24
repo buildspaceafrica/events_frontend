@@ -1,9 +1,13 @@
 import Head from "next/head";
 import React, { useState } from "react";
-import Button from "../../components/Button";
-import { Header, MintingModal, RadioBox } from "../../components";
-import Input from "../../components/Input";
-import TimeBox from "../../components/TimeBox";
+import {
+  Header,
+  MintingModal,
+  RadioBox,
+  Button,
+  Input,
+  TimeBox,
+} from "../../components";
 
 function Components(props) {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
