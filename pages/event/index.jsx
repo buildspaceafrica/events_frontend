@@ -10,14 +10,14 @@ function Event() {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
 
   return (
-    <div className={styles.event__con}>
+    <main className={styles.event__con}>
       <MintingModal
         isActive={isDisplayingModal}
         setIsActive={setIsDisplayingModal}
       />
       <div className={styles.event__inner__con}>
         <Header />
-        <div className={`${styles.container} container md:flex flex gap-x-7`}>
+        <div className={`${styles.container} container md:flex flex`}>
           <div className={styles.left__con}>
             <h5>Welcome to a new era!</h5>
             <h1>
@@ -61,7 +61,7 @@ function Event() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

@@ -53,20 +53,20 @@ function Components(props) {
           <br className="my-5" />
 
           <Button
-            text="Cancle"
+            text="Cancel"
             icon={true}
             onClick={() => setIsDisplayingModal(true)}
           />
           <p className="my-4 text-white">Radio Box</p>
           <RadioBox name="attending" options={["Yes", "No"]} />
           <p className="my-4 text-white">Input</p>
+          <Input label="Enter your Full Name" placeholder="name" />
+          <br className="my-5" />
           <Input
-            label="Enter your Full Name"
-            placeholder="name"
+            label="Enter emaill address"
+            placeholder="name@domain.com"
             msg="You will recieve your NFT through this email"
           />
-          <br className="my-5" />
-          <Input label="Enter emaill address" placeholder="name@domain.com" />
           <br className="my-5" />
           <p className="my-4 text-white ">Time</p>
           <div
