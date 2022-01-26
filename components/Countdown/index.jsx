@@ -11,7 +11,6 @@ function Countdown(props) {
   const eventTime = new Date(2022, 0, 29, 10);
   const now = new Date().getTime();
 
-
   useEffect(() => {
     let interval;
     if (eventTime.getTime() < now) setHasExpired(true);
@@ -21,18 +20,18 @@ function Countdown(props) {
         const now = new Date().getTime();
         if (eventTime.getTime() < now) setHasExpired(true);
         let difference = Math.abs(eventTime - now) / 1000;
-    
+
         const days = Math.floor(difference / 86400);
         difference -= days * 86400;
-    
+
         const hours = Math.floor(difference / 3600) % 24;
         difference -= hours * 3600;
-    
+
         const minutes = Math.floor(difference / 60) % 60;
         difference -= minutes * 60;
-    
+
         const seconds = Math.round(difference % 60);
-    
+
         const timeDetails = { days, hours, minutes, seconds };
         for (const key in timeDetails) {
           if (timeDetails[key].toString().length < 2)
@@ -40,11 +39,13 @@ function Countdown(props) {
         }
         if (seconds == "60") minutes = minuteRef?.current?.innerText;
         if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
-    
-        dayRef?.current?.innerText = timeDetails.days;
-        hourRef?.current?.innerText = timeDetails.hours;
-        minuteRef?.current?.innerText = timeDetails.minutes;
-        secondRef?.current?.innerText = timeDetails.seconds;
+
+        if (dayRef) {
+          dayRef.current.innerText = timeDetails.days;
+          hourRef.current.innerText = timeDetails.hours;
+          minuteRef.current.innerText = timeDetails.minutes;
+          secondRef.current.innerText = timeDetails.seconds;
+        }
         return timeDetails;
       };
       interval = setInterval(() => {
@@ -52,7 +53,7 @@ function Countdown(props) {
       }, 1000);
     }
     if (hasExpired) {
-      clearInterval(interval)
+      clearInterval(interval);
     }
   }, [hasExpired]);
   return (
