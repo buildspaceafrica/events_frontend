@@ -29,13 +29,13 @@ function MintCountdown(props) {
         if (timeDetails[key].toString().length < 2)
           timeDetails[key] = `0${timeDetails[key]}`;
       }
-      if (seconds == "60") minutes = minuteRef.current.innerText;
+      if (seconds == "60") minutes = minuteRef?.current?.innerText;
       if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
 
-      dayRef.current.innerText = timeDetails.days;
-      hourRef.current.innerText = timeDetails.hours;
-      minuteRef.current.innerText = timeDetails.minutes;
-      secondRef.current.innerText = timeDetails.seconds;
+      dayRef?.current?.innerText = timeDetails.days;
+      hourRef?.current?.innerText = timeDetails.hours;
+      minuteRef?.current?.innerText = timeDetails.minutes;
+      secondRef?.current?.innerText = timeDetails.seconds;
       return timeDetails;
     };
     setInterval(() => {
