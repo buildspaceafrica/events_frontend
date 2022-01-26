@@ -8,11 +8,11 @@ function Countdown(props) {
   const minuteRef = useRef(null);
   const secondRef = useRef(null);
   const [hasExpired, setHasExpired] = useState(false);
-  const eventTime = new Date(2022, 0, 29, 10);
   const now = new Date().getTime();
 
   useEffect(() => {
     let interval;
+    const eventTime = new Date(2022, 0, 29, 10);
     if (eventTime.getTime() < now) setHasExpired(true);
     if (eventTime.getTime() >= now) {
       const setTimeLeft = () => {
@@ -40,7 +40,7 @@ function Countdown(props) {
         if (seconds == "60") minutes = minuteRef?.current?.innerText;
         if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
 
-        if (dayRef) {
+        if (dayRef !== null) {
           dayRef.current.innerText = timeDetails.days;
           hourRef.current.innerText = timeDetails.hours;
           minuteRef.current.innerText = timeDetails.minutes;
@@ -55,7 +55,8 @@ function Countdown(props) {
     if (hasExpired) {
       clearInterval(interval);
     }
-  }, [hasExpired]);
+  }, [hasExpired, now]);
+
   return (
     <div
       className={`flex gap-x-2 md:gap-x-4 lg:gap-x-8 xl:gap-x-10 mb-14 lg:my-8 ${styles["container"]}`}
