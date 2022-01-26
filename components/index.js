@@ -9,3 +9,4 @@ export * from "./TimeBox";
 export * from "./Video";
 export * from "./Countdown";
 export * from "./Wizard";
+export * from "./MintCountdown";

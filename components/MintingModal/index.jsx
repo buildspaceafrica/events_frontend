@@ -4,6 +4,7 @@ import { RadioBox, Button, Input } from "../../components";
 import styles from "./minting-modal.module.css";
 import UserInfo from "./UserInfo";
 import OTP from "./OTP";
+import { MintCountdown } from "../MintCountdown";
 
 function MintingModal({ isActive, setIsActive }) {
   const containerRef = useRef();
@@ -41,8 +42,9 @@ function MintingModal({ isActive, setIsActive }) {
         className={`${styles["modal-body"]} p-10`}
         onClick={(e) => e.stopPropagation()}
       >
+        <MintCountdown />
         {/* <UserInfo onClose={closeModal} /> */}
-        <OTP />
+        {/* <OTP /> */}
         {/* <p>You sef know say Chidi Sabi the work sha! 🔥😉</p> */}
       </div>
     </div>

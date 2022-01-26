@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./otp.module.scss";
 import OtpInput from "react-otp-input";
 import { Button } from "../..";
-import { Verified } from "../../../assets/images/svgs";
+import { VerifiedIcon } from "../../../assets/images/svgs";
 
 function OTP() {
   const [otp, setOtp] = useState("");
@@ -11,6 +11,14 @@ function OTP() {
   const handleChange = (value) => {
     setOtp(value);
   };
+
+  const verifyOTP = useCallback(() => {
+    console.log(otp);
+  }, [otp]);
+
+  useEffect(() => {
+    if (otp.length === 4) verifyOTP(otp);
+  }, [otp, verifyOTP]);
   return (
     <div className={styles.opt__con}>
       <h1>Verify your Email</h1>
@@ -32,7 +40,7 @@ function OTP() {
             width: "70%",
           }}
           inputStyle={{
-            border: "1px solid rgba(184, 186, 191, 0.2);",
+            border: "1px solid rgba(184, 186, 191, 0.2)",
             width: "54px",
             height: "54px",
             background: "rgba(184, 186, 191, 0.04)",
@@ -51,7 +59,7 @@ function OTP() {
             isVerified ? styles.verification__con : styles.notverified__con
           }
         >
-          <Verified /> <h6>Verified</h6>
+          <VerifiedIcon /> <h6>{isVerified ? "Verified" : "Unverified"} </h6>
         </span>
       </div>
       <div className={styles.otp__button__con}>
