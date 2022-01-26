@@ -6,6 +6,7 @@ function RadioBox({ formik, options, name }) {
   const [selectedItem, setSelectedItem] = useState(null);
   const toggleInput = (item) => {
     setSelectedItem(item);
+    formik.setFieldValue(name, item);
   };
   return (
     <>
@@ -17,7 +18,10 @@ function RadioBox({ formik, options, name }) {
           >
             <button
               className={`mr-2 ${selectedItem === item && styles["true"]}`}
-              onClick={() => toggleInput(item)}
+              onClick={(e) => {
+                toggleInput(item);
+                e.preventDefault();
+              }}
             >
               <CheckboxIcon className={`${styles["checkbox"]}`} />
             </button>
@@ -25,7 +29,7 @@ function RadioBox({ formik, options, name }) {
               <input
                 type="radio"
                 name={name}
-                value={item}
+                value={formik?.values[name]}
                 onClick={() => toggleInput(item)}
               />
               <span className="text-white">{item}</span>

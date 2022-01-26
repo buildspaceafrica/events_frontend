@@ -8,3 +8,4 @@ export * from "./Input";
 export * from "./TimeBox";
 export * from "./Video";
 export * from "./Countdown";
+export * from "./Wizard";
