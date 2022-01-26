@@ -1,5 +1,9 @@
-@media screen and (max-width: 1010px) {
-    .video__con {
-      margin-top: 50px;
-    }
+.container {
+  img {
+    height: 24px;
+    width: 24px;
   }
+  span {
+    letter-spacing: 0.2px;
+  }
+}

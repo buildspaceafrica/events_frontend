@@ -1,6 +1,8 @@
 .input__con {
   width: max-content;
   display: flex;
+  width: 100%;
+  max-width: 440px;
   flex-direction: column;
   position: relative;
   label {
@@ -12,7 +14,7 @@
     margin-bottom: 8px;
   }
   input {
-    width: 446px;
+    width: 100%;
     height: 56px;
     background: rgba(184, 186, 191, 0.04);
     border: 1px solid rgba(184, 186, 191, 0.2);

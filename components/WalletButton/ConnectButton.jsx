@@ -14,28 +14,15 @@ function ConnectButton() {
 
   return (
     <div className={styles["container"]}>
-      {!hasMetaMask && (
-        <div className="">
-          <a
-            rel="noreferrer"
-            referrerPolicy="no-referrer"
-            target="_blank"
-            href="https://metamask.io/download"
-          >
-            <Button buttonText="Get Meta mask" />
-          </a>
-        </div>
-      )}
-      {hasMetaMask && (
-        <button
-          onClick={connect}
-          disabled={loading}
-          className={`${styles["connect-btn"]} `}
-        >
-          <span className="d-none d-md-block pr-3 text-xl">Connect Wallet</span>
-          <LockIcon />
-        </button>
-      )}
+      <button
+        onClick={connect}
+        disabled={loading}
+        className={`${styles["connect-btn"]} `}
+      >
+        <span className="hidden md:block pr-3 text-xl">Connect Wallet</span>
+        <span className="pr-2 md:hidden text-xl">Connect</span>
+        <LockIcon />
+      </button>
     </div>
   );
 }

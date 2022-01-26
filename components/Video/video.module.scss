@@ -1,11 +1,6 @@
 .video__con {
-  height: 300px;
+  height: 350px;
   width: 100%;
-  //   background: linear-gradient(
-  //     180deg,
-  //     rgba(0, 0, 0, 0) 0%,
-  //     rgba(11, 1, 6, 0.85) 82.58%
-  //   );
   overflow-y: hidden;
   position: relative;
   span {
@@ -28,10 +23,15 @@
       padding-left: 10px;
     }
   }
+  *:not(*:hover, *:hover *) {
+    -webkit-transition: 0.1s all ease-in-out;
+    -o-transition: 0.1s all ease-in-out;
+    transition: 0.1s all ease-in-out;
+  }
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (min-width: 992px) {
   .video__con {
-    margin-top: 50px;
+    height: 320px;
   }
 }

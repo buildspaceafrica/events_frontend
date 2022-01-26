@@ -5,14 +5,15 @@ import styles from "./logo.module.scss";
 
 function Logo(props) {
   return (
-    <div className="">
+    <div className={`${styles["container"]}`}>
       <div className="flex items-center">
         <div className="pr-3">
-          <Image width={34} height={34} src={logoImage} alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img width={34} height={34} src={logoImage.src} alt="" />
         </div>
         <div>
           <span
-            className={`${styles.logo__text} secondary-text text-white text-xl`}
+            className={`${styles.logo__text} font-semibold secondary-text text-white text-xl`}
           >
             buildspace
           </span>

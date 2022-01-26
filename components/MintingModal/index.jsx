@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { RadioBox } from "../../components";
-import Button from "../Button";
-import Input from "../Input";
+import { RadioBox, Button, Input } from "../../components";
 
 import styles from "./minting-modal.module.css";
 
@@ -62,7 +60,7 @@ function MintingModal({ isActive, setIsActive }) {
         </div>
         <br className="my-5" />
         <div className="flex justify-end">
-          <Button text="Cancle" icon={true} onClick={() => closeModal()} />
+          <Button text="Cancel" icon={true} onClick={() => closeModal()} />
 
           <Button
             type="primary"

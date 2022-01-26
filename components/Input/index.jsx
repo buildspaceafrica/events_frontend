@@ -11,4 +11,4 @@ function Input({ label, placeholder, msg, value, onchange }) {
   );
 }
 
-export default Input;
+export { Input };

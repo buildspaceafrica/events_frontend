@@ -1,9 +1,13 @@
 import Head from "next/head";
 import React, { useState } from "react";
-import Button from "../../components/Button";
-import { Header, MintingModal, RadioBox } from "../../components";
-import Input from "../../components/Input";
-import Time from "../../components/Time";
+import {
+  Header,
+  MintingModal,
+  RadioBox,
+  Button,
+  Input,
+  TimeBox,
+} from "../../components";
 
 function Components(props) {
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
@@ -19,7 +23,7 @@ function Components(props) {
         />
         <meta
           name="keywords"
-          content="Buildspace Africa, Buildspace, Web3, Blockchain, Chidiebere Ekennia, Joshua Nwankwo"
+          content="Buildspace Africa, Buildspace, Let's Talk Web3, Web3, Blockchain, Chidiebere Ekennia, Joshua Nwankwo"
         ></meta>
         <title>BuildSpace Africa | Components</title>
       </Head>
@@ -53,22 +57,22 @@ function Components(props) {
           <br className="my-5" />
 
           <Button
-            text="Cancle"
+            text="Cancel"
             icon={true}
             onClick={() => setIsDisplayingModal(true)}
           />
           <p className="my-4 text-white">Radio Box</p>
           <RadioBox name="attending" options={["Yes", "No"]} />
           <p className="my-4 text-white">Input</p>
+          <Input label="Enter your Full Name" placeholder="name" />
+          <br className="my-5" />
           <Input
-            label="Enter your Full Name"
-            placeholder="name"
+            label="Enter emaill address"
+            placeholder="name@domain.com"
             msg="You will recieve your NFT through this email"
           />
           <br className="my-5" />
-          <Input label="Enter emaill address" placeholder="name@domain.com" />
-          <br className="my-5" />
-          <p className="my-4 text-white ">Time</p>
+          <p className="my-4 text-white ">TimeBox</p>
           <div
             className="flex"
             style={{
@@ -77,10 +81,10 @@ function Components(props) {
               justifyContent: "space-between",
             }}
           >
-            <Time type="day" number="05" />
-            <Time type="hour" number="04" />
-            <Time type="minute" number="23" />
-            <Time number="52" />
+            <TimeBox type="day" number="05" />
+            <TimeBox type="hour" number="04" />
+            <TimeBox type="minute" number="23" />
+            <TimeBox number="52" />
           </div>
         </section>
       </main>
