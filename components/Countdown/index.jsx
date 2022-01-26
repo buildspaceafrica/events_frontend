@@ -1,17 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./countdown.module.css";
 import { TimeBox } from "../../components";
 
 function Countdown(props) {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const dayRef = useRef(null);
+  const hourRef = useRef(null);
+  const minuteRef = useRef(null);
+  const secondRef = useRef(null);
+
   useEffect(() => {
-    const getTimeLeft = () => {
-      const eventTime = new Date(2022, 0, 29, 10);
+    const setTimeLeft = () => {
+      const eventTime = new Date(2022, 0, 26, 18);
       const now = new Date().getTime();
       let difference = Math.abs(eventTime - now) / 1000;
 
@@ -31,24 +30,27 @@ function Countdown(props) {
         if (timeDetails[key].toString().length < 2)
           timeDetails[key] = `0${timeDetails[key]}`;
       }
-      if (seconds == "60") minutes = timeLeft.minutes;
+      if (seconds == "60") minutes = minuteRef.current.innerText;
       if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
 
+      dayRef.current.innerText = timeDetails.days;
+      hourRef.current.innerText = timeDetails.hours;
+      minuteRef.current.innerText = timeDetails.minutes;
+      secondRef.current.innerText = timeDetails.seconds;
       return timeDetails;
     };
     setInterval(() => {
-      setTimeLeft(getTimeLeft());
+      setTimeLeft();
     }, 1000);
   }, []);
-
   return (
     <div
       className={`flex gap-x-2 md:gap-x-4 lg:gap-x-8 xl:gap-x-10 mb-14 lg:my-8 ${styles["container"]}`}
     >
-      <TimeBox type="day" number={timeLeft.days} />
-      <TimeBox type="hour" number={timeLeft.hours} />
-      <TimeBox type="minute" number={timeLeft.minutes} />
-      <TimeBox number={timeLeft.seconds} />
+      <TimeBox type="day" ref={dayRef} />
+      <TimeBox type="hour" ref={hourRef} />
+      <TimeBox type="minute" ref={minuteRef} />
+      <TimeBox ref={secondRef} />
     </div>
   );
 }

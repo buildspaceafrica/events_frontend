@@ -1,10 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./time-box.module.scss";
 
-function TimeBox({ number, type }) {
+// eslint-disable-next-line react/display-name
+const TimeBox = forwardRef(({ type }, ref) => {
   return (
     <div className={`md:py-4 ${styles.time__con}`}>
-      <h1>{number}</h1>
+      <h1 ref={ref}></h1>
       <h5>
         {type === "day"
           ? "Days"
@@ -27,6 +28,6 @@ function TimeBox({ number, type }) {
       ></span>
     </div>
   );
-}
+});
 
 export { TimeBox };

@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./mint-countdown.module.css";
 
 function MintCountdown(props) {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const dayRef = useRef(null);
+  const hourRef = useRef(null);
+  const minuteRef = useRef(null);
+  const secondRef = useRef(null);
+
   useEffect(() => {
-    const getTimeLeft = () => {
+    const setTimeLeft = () => {
       const eventTime = new Date(2022, 0, 26, 18);
       const now = new Date().getTime();
       let difference = Math.abs(eventTime - now) / 1000;
@@ -30,15 +29,19 @@ function MintCountdown(props) {
         if (timeDetails[key].toString().length < 2)
           timeDetails[key] = `0${timeDetails[key]}`;
       }
-      if (seconds == "60") minutes = timeLeft.minutes;
+      if (seconds == "60") minutes = minuteRef.current.innerText;
       if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
 
+      dayRef.current.innerText = timeDetails.days;
+      hourRef.current.innerText = timeDetails.hours;
+      minuteRef.current.innerText = timeDetails.minutes;
+      secondRef.current.innerText = timeDetails.seconds;
       return timeDetails;
     };
     setInterval(() => {
-      setTimeLeft(getTimeLeft());
+      setTimeLeft();
     }, 1000);
-  }, [timeLeft]);
+  }, []);
 
   return (
     <div className={styles["container"]}>
@@ -47,16 +50,16 @@ function MintCountdown(props) {
       </p>
       <p className="">Minting will be available in:</p>
       <div className="grid grid-cols-4 gap-x-5 mt-6">
-        <div className={`text-2xl ${styles["time-item"]}`}>{timeLeft.days}</div>
-        <div className={`text-2xl ${styles["time-item"]}`}>
-          {timeLeft.hours}
-        </div>
-        <div className={`text-2xl ${styles["time-item"]}`}>
-          {timeLeft.minutes}
-        </div>
-        <div className={`text-2xl ${styles["time-item"]}`}>
-          {timeLeft.seconds}
-        </div>
+        <div ref={dayRef} className={`text-2xl ${styles["time-item"]}`}></div>
+        <div ref={hourRef} className={`text-2xl ${styles["time-item"]}`}></div>
+        <div
+          ref={minuteRef}
+          className={`text-2xl ${styles["time-item"]}`}
+        ></div>
+        <div
+          ref={secondRef}
+          className={`text-2xl ${styles["time-item"]}`}
+        ></div>
       </div>
     </div>
   );
