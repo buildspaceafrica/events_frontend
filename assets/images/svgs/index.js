@@ -6,6 +6,8 @@ import Calendar from "./Calendar.svg";
 import Clock from "./clock.svg";
 import Add from "./add.svg";
 import Pattern from "./pattern.svg";
+import Verified from "./verified.svg";
+import NotVerified from "./notverified.svg";
 
 export {
   LockIcon,
@@ -16,4 +18,6 @@ export {
   Clock,
   Add,
   Pattern,
+  Verified,
+  NotVerified,
 };
