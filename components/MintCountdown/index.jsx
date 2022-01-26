@@ -46,11 +46,17 @@ function MintCountdown(props) {
         Mint your NFT Ticket
       </p>
       <p className="">Minting will be available in:</p>
-      <div className="grid grid-cols-4 mt-6">
-        <div className={styles["time-item"]}>{timeLeft.days}</div>
-        <div className={styles["time-item"]}>{timeLeft.hours}</div>
-        <div className={styles["time-item"]}>{timeLeft.minutes}</div>
-        <div className={styles["time-item"]}>{timeLeft.seconds}</div>
+      <div className="grid grid-cols-4 gap-x-5 mt-6">
+        <div className={`text-2xl ${styles["time-item"]}`}>{timeLeft.days}</div>
+        <div className={`text-2xl ${styles["time-item"]}`}>
+          {timeLeft.hours}
+        </div>
+        <div className={`text-2xl ${styles["time-item"]}`}>
+          {timeLeft.minutes}
+        </div>
+        <div className={`text-2xl ${styles["time-item"]}`}>
+          {timeLeft.seconds}
+        </div>
       </div>
     </div>
   );
