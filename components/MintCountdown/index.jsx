@@ -50,16 +50,16 @@ function MintCountdown(props) {
       </p>
       <p className="">Minting will be available in:</p>
       <div className="grid grid-cols-4 gap-x-5 mt-6">
-        <div ref={dayRef} className={`text-2xl ${styles["time-item"]}`}></div>
-        <div ref={hourRef} className={`text-2xl ${styles["time-item"]}`}></div>
+        <div ref={dayRef} className={`text-2xl ${styles["time-item"]}`}>00</div>
+        <div ref={hourRef} className={`text-2xl ${styles["time-item"]}`}>00</div>
         <div
           ref={minuteRef}
           className={`text-2xl ${styles["time-item"]}`}
-        ></div>
+        >00</div>
         <div
           ref={secondRef}
           className={`text-2xl ${styles["time-item"]}`}
-        ></div>
+        >00</div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import styles from "./time-box.module.scss";
 const TimeBox = forwardRef(({ type }, ref) => {
   return (
     <div className={`md:py-4 ${styles.time__con}`}>
-      <h1 ref={ref}></h1>
+      <h1 ref={ref}>00</h1>
       <h5>
         {type === "day"
           ? "Days"
