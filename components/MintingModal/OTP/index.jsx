@@ -54,6 +54,7 @@ function OTP() {
           <Verified /> <h6>Verified</h6>
         </span>
       </div>
+      <h3 className={styles.otp__timer}>4mins 2secs remaining</h3>
       <div className={styles.otp__button__con}>
         <Button text="Cancel" />
         <Button

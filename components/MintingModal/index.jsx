@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { RadioBox, Button, Input } from "../../components";
+import Congrats from "./Congrats";
 
 import styles from "./minting-modal.module.css";
 import OTP from "./OTP";
@@ -40,7 +41,8 @@ function MintingModal({ isActive, setIsActive }) {
         className={`${styles["modal-body"]} p-10`}
         onClick={(e) => e.stopPropagation()}
       >
-        <OTP />
+        <Congrats />
+        {/* <OTP /> */}
         {/* <p>You sef know say Chidi Sabi the work sha! 🔥😉</p> */}
       </div>
     </div>
