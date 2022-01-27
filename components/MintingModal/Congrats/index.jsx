@@ -6,7 +6,7 @@ function Congrats() {
   return (
     <div className={styles.congrats__con}>
       <h1>
-        <span>Congrats!</span> 🎊 🎉
+        <span>Congratulations! </span> 
       </h1>
       <h5>
         Your NFT is ready! Open your email to view and download the NFT ticket.

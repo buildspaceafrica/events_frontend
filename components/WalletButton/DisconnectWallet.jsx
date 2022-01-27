@@ -5,9 +5,9 @@ import { useAppContext } from "../../contexts/appContext";
 import { shortText } from "../../utils/toolKit";
 
 function DisconnectWalletButton() {
-  const { user, handleWalletDisconnect } = useAppContext();
+  const { address, handleWalletDisconnect } = useAppContext();
 
-  const shortAddress = shortText(user);
+  const shortAddress = shortText(address);
 
   const [arrowIsDown, setArrowIsDown] = useState(true);
   let containerClasses = `${styles["container"]} `;

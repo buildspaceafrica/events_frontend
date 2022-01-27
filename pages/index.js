@@ -1,11 +1,18 @@
 import Head from "next/head";
+import { toast } from "react-toastify";
 import { useState } from "react";
 import { Calendar, Clock } from "../assets/images/svgs";
 import { Header, MintingModal, Button, Video, Countdown } from "../components";
+import { useAppContext } from "../contexts/appContext";
 import styles from "./index-page.module.scss";
 
 function IndexPage() {
+  const { isConnected } = useAppContext();
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
+
+  async function displayUnconnectedMessage() {
+    toast.error("Please Connect your Wallet first");
+  }
 
   return (
     <>
@@ -47,7 +54,10 @@ function IndexPage() {
                   type="primary"
                   text="Mint NFT"
                   icon={true}
-                  onClick={() => setIsDisplayingModal(true)}
+                  onClick={() => {
+                    if (isConnected) setIsDisplayingModal(true);
+                    if (!isConnected) displayUnconnectedMessage();
+                  }}
                 />
               </div>
             </div>

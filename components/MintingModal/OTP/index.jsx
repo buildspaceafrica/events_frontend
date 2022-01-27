@@ -1,10 +1,16 @@
+import { toast } from "react-toastify";
 import React, { useCallback, useState, useEffect } from "react";
 import styles from "./otp.module.scss";
 import OtpInput from "react-otp-input";
 import { Button } from "../..";
 import { VerifiedIcon } from "../../../assets/images/svgs";
+import { MintTicket } from "../../../services/mintService";
+import { useMintingContext } from "../../../contexts/mintingContext";
+import { useAppContext } from "../../../contexts/appContext";
 
 function OTP() {
+  const { address } = useAppContext();
+  const { setScreen, setUserDetails, userDetails } = useMintingContext();
   const [otp, setOtp] = useState("");
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,10 +19,18 @@ function OTP() {
     setOtp(value);
   };
 
-  const verifyOTP = useCallback(() => {
-    setIsLoading(true);
-    console.log(otp);
-  }, [otp]);
+  const verifyOTP = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const body = { address, email: userDetails.email, otp };
+      await MintTicket(body);
+      setIsLoading(false);
+      toast.success("Congrats, Your NFT has been minted. Check your email! 🥳");
+      setIsVerified(true);
+      setScreen("3");
+      console.log(otp);
+    } catch (error) {}
+  }, [address, otp, setScreen, userDetails.email]);
 
   useEffect(() => {
     if (otp.length === 4) verifyOTP(otp);
@@ -64,7 +78,7 @@ function OTP() {
           <VerifiedIcon /> <h6>{isVerified ? "Verified" : "Unverified"} </h6>
         </span>
       </div>
-      <h3 className={styles.otp__timer}>4mins 2secs remaining</h3>
+      {/* <h3 className={styles.otp__timer}>4mins 2secs remaining</h3> */}
       <div className={styles.otp__button__con}>
         <Button text="Cancel" />
         <Button

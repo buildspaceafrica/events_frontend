@@ -1,5 +1,4 @@
 import { ethers } from "ethers";
-import Web3Modal from "web3modal";
 
 export function hasEthereum() {
   return window.ethereum ? true : false;
@@ -7,35 +6,12 @@ export function hasEthereum() {
 
 export const connectToMetaMask = async (setError) => {
   try {
-    const providerOptions = {
-      walletconnect: {
-        package: WalletConnectProvider,
-        options: {
-          // Mikko's test key - don't copy as your mileage may vary
-          infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
-        },
-      },
+    if (!hasEthereum()) return false;
 
-      fortmatic: {
-        package: Fortmatic,
-        options: {
-          // Mikko's TESTNET api key
-          key: "pk_test_391E26A3B43A3350",
-        },
-      },
-      /* See Provider Options Section */
-    };
-
-    const web3Modal = new Web3Modal({
-      network: "mainnet", // optional
-      cacheProvider: true, // optional
-      providerOptions, // required
+    const addresses = await window.ethereum.request({
+      method: "eth_requestAccounts",
     });
-
-    const instance = await web3Modal.connect();
-
-    const provider = new ethers.providers.Web3Provider(instance);
-    const signer = provider.getSigner();
+    return addresses[0];
   } catch (error) {
     console.log(error);
     if (setError) setError(error.message ?? error.toString());

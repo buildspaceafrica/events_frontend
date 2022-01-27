@@ -33,10 +33,10 @@ function Video() {
         allowFullScreen
       ></iframe>
 
-      <span className={styles.video__action}>
+      {/* <span className={styles.video__action}>
         <PlayButton />
         <h2>Play Promotional Video</h2>
-      </span>
+      </span> */}
     </div>
   );
 }

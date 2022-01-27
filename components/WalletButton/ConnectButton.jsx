@@ -1,8 +1,8 @@
+import { toast } from "react-toastify";
 import { Button } from "../index";
 import styles from "./connect-button.module.css";
 import { useAppContext } from "../../contexts/appContext";
 import { LockIcon } from "../../assets/images/svgs";
-
 function ConnectButton() {
   const loading = false;
   const { handleWalletConnect, hasMetaMask } = useAppContext();
@@ -12,10 +12,14 @@ function ConnectButton() {
     if (!connectionStatus) return;
   }
 
+  async function displayMessage() {
+    toast.error("Please Install Meta Mask on your PC");
+  }
+
   return (
     <div className={styles["container"]}>
       <button
-        onClick={connect}
+        onClick={hasMetaMask ? connect : displayMessage}
         disabled={loading}
         className={`${styles["connect-btn"]} `}
       >

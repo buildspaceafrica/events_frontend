@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { RadioBox, Button, Input } from "../../components";
+import { RadioBox, Button, Input, CloseButton, Wizard } from "../../components";
 import Congrats from "./Congrats";
 
 import styles from "./minting-modal.module.css";
 import UserInfo from "./UserInfo";
 import OTP from "./OTP";
 import { MintCountdown } from "./MintCountdown";
-import { Wizard } from "../Wizard";
 import { useMintingContext } from "../../contexts/mintingContext";
 
 function MintingModal({ isActive, setIsActive }) {
@@ -43,14 +42,39 @@ function MintingModal({ isActive, setIsActive }) {
   return (
     <div ref={containerRef} className={containerClass} onClick={closeModal}>
       <div
-        className={`${styles["modal-body"]} px-8 md:px-10 pb-8 pt-2`}
+        className={`${styles["modal-body"]} `}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* <Congrats /> */}
-        <MintCountdown />
-        {/* <UserInfo onClose={closeModal} /> */}
-        {/* <OTP /> */}
-        {/* <p>You sef know say Chidi Sabi the work sha! 🔥😉</p> */}
+        <div
+          className={`flex justify-between items-center px-8 md:px-10 ${styles["modal-top"]}`}
+        >
+          <CloseButton onClick={closeModal} />
+          <div className={`${styles["wizard"]} pt-5`}>
+            <Wizard allSteps={["1", "2", "3"]} currentStep={screen} />
+          </div>
+        </div>
+        <div className={`${styles["screen-container"]} pb-8 pt-2`}>
+          <div className={`${styles["screen-slide"]} ${styles[`s${screen}`]}`}>
+            {/* <MintCountdown /> */}
+            {screen === "1" && (
+              <div className="px-8  md:px-10">
+                <UserInfo onClose={closeModal} />
+              </div>
+            )}
+            {screen === "2" && (
+              <div className="px-8  md:px-10">
+                <OTP />
+              </div>
+            )}
+            {screen === "3" && (
+              <div className="px-8  md:px-10">
+                <Congrats />
+              </div>
+            )}
+
+            {/* <p>You sef know say Chidi Sabi the work sha! 🔥😉</p> */}
+          </div>
+        </div>
       </div>
     </div>
   );
