@@ -3,13 +3,17 @@
   width: 100%;
   overflow-y: hidden;
   position: relative;
+  iframe {
+    height: 100%;
+    width: 100%;
+  }
   span {
     width: 100% !important;
     // height: 100% !important;
   }
   .video__action {
     position: absolute;
-    bottom: 20px;
+    bottom: 0px;
     right: 30px;
     display: flex;
     width: max-content !important;

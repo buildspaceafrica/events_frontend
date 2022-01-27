@@ -1,11 +1,20 @@
 import React from "react";
+import styles from "./congrats.module.scss";
+import { Button } from "../..";
 
-function Congrats(props) {
+function Congrats() {
   return (
-    <div>
-      <p className="mb-3 green-gradient-text text-xl font-extrabold">
-        Mint your NFT Ticket
-      </p>
+    <div className={styles.congrats__con}>
+      <h1>
+        <span>Congrats!</span> 🎊 🎉
+      </h1>
+      <h5>
+        Your NFT is ready! Open your email to view and download the NFT ticket.
+        See you at the event 🚀
+      </h5>
+      <span className={styles.congrats__button__con}>
+        <Button text="Done" type="primary" />
+      </span>
     </div>
   );
 }

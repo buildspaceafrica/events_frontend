@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { Add, Calendar, Clock } from "../assets/images/svgs";
 import { Header, MintingModal, Button, Video, Countdown } from "../components";
+import AddToCalender from "../components/AddToCalender";
 import styles from "./index-page.module.scss";
 
 function IndexPage() {
@@ -69,10 +70,7 @@ function IndexPage() {
                     10:00AM (WAT)
                   </span>
                 </div>
-                <div className={styles.clock__bottom__right}>
-                  <Add className="mr-2" />
-                  <h1>Add to Calender</h1>
-                </div>
+                {/* <AddToCalender /> */}
               </div>
             </div>
           </div>
