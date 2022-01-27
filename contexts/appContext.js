@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import {
   createContext,
   useContext,
@@ -5,7 +6,6 @@ import {
   useEffect,
   useCallback,
 } from "react";
-
 import {
   connectToMetaMask,
   listenToAccountChanges,
@@ -20,13 +20,15 @@ export function AppProvider({ children }) {
   const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [hasMetaMask, setHasMetaMask] = useState(true);
+  const [address, setAddress] = useState(false);
 
   const handleWalletConnect = useCallback(() => {
     return (async () => {
-      const connectionStatus = await connectToMetaMask();
-      if (!connectionStatus) return false;
+      const address = await connectToMetaMask();
+      if (!address) return toast.error("Connection Unsuccesful");
 
       setIsConnected(true);
+      setAddress(address);
 
       localStorage.setItem("wallet-connection", true);
 
@@ -89,6 +91,7 @@ export function AppProvider({ children }) {
         handleWalletConnect,
         handleWalletDisconnect,
         hasMetaMask,
+        address,
       }}
     >
       {children}

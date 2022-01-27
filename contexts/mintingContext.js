@@ -3,14 +3,21 @@ import { createContext, useContext, useEffect, useState } from "react";
 const MintingContext = createContext();
 
 export function MintingProvider({ children }) {
-  const [userDetails, setUserDetails] = useState({ email: "", name: "" });
+  const [screen, setScreen] = useState("3");
+  const [userDetails, setUserDetails] = useState({
+    email: "",
+    name: "",
+    isAvailable: false,
+  });
 
   useEffect(() => {
-    console.log(userDetails);
+    // console.log(userDetails);
   }, [userDetails]);
 
   return (
-    <MintingContext.Provider value={{ setUserDetails, userDetails }}>
+    <MintingContext.Provider
+      value={{ setUserDetails, userDetails, screen, setScreen }}
+    >
       {children}
     </MintingContext.Provider>
   );

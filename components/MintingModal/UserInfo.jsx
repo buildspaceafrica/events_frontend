@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -8,28 +8,34 @@ import { useMintingContext } from "../../contexts/mintingContext";
 import { RegisterUser } from "../../services/mintService";
 
 function UserInfo({ onClose, onContinue }) {
-  const { setUserDetails } = useMintingContext();
+  const { setScreen, setUserDetails } = useMintingContext();
+  const [isLoading, setIsLoading] = useState(false);
+
   const validationSchema = Yup.object({
     name: Yup.string().required("Please enter your name"),
     email: Yup.string()
       .email("Please enter a correct email")
       .required("Email is required"),
-    attending: Yup.string().required(),
+    isAvailable: Yup.string().required(),
   });
 
   const initialValues = {
     name: "",
     email: "",
-    attending: "",
+    isAvailable: "",
     Yes: "",
     No: "",
   };
 
   const handleSubmit = async (values) => {
-    values = { name: values.name, email: values.email };
+    const isAvailable = values.isAvailable === "Yes" ? true : false;
+    values = { name: values.name, email: values.email, isAvailable };
+    setIsLoading(true);
     setUserDetails(values);
     await RegisterUser(values);
+    setIsLoading(false);
     toast.success("User was registered successfully");
+    setScreen("2");
   };
 
   const formik = useFormik({
@@ -50,6 +56,7 @@ function UserInfo({ onClose, onContinue }) {
         formik={formik}
         label="Enter emaill address"
         placeholder="name@domain.com"
+        msg="You will recieve your NFT through this email"
       />
       <br className="my-5" />
 
@@ -58,13 +65,12 @@ function UserInfo({ onClose, onContinue }) {
         formik={formik}
         label="Enter your Full Name"
         placeholder="name"
-        msg="You will recieve your NFT through this email"
       />
       <br className="my-5" />
 
       <p>Will you attend the event physically?</p>
       <div className="my-2">
-        <RadioBox formik={formik} name="attending" options={["Yes", "No"]} />
+        <RadioBox formik={formik} name="isAvailable" options={["Yes", "No"]} />
       </div>
       <br className="my-5" />
       <div className="flex justify-end">
@@ -78,7 +84,8 @@ function UserInfo({ onClose, onContinue }) {
         />
 
         <Button
-          disabled={!formik.isValid || !formik.dirty}
+          loading={isLoading}
+          disabled={!formik.isValid || !formik.dirty || isLoading}
           type="primary"
           text="Continue"
           onClick={onContinue && onContinue}
