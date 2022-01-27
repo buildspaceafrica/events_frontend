@@ -1,54 +1,70 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./countdown.module.css";
 import { TimeBox } from "../../components";
 
 function Countdown(props) {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const dayRef = useRef(null);
+  const hourRef = useRef(null);
+  const minuteRef = useRef(null);
+  const secondRef = useRef(null);
+  const [hasExpired, setHasExpired] = useState(false);
+  const now = new Date().getTime();
+
   useEffect(() => {
-    const getTimeLeft = () => {
-      const eventTime = new Date(2022, 0, 29, 10);
-      const now = new Date().getTime();
-      let difference = Math.abs(eventTime - now) / 1000;
+    let interval;
+    const eventTime = new Date(2022, 0, 29, 10);
+    if (eventTime.getTime() < now) setHasExpired(true);
+    if (eventTime.getTime() >= now) {
+      const setTimeLeft = () => {
+        const eventTime = new Date(2022, 0, 29, 10);
+        const now = new Date().getTime();
+        if (eventTime.getTime() < now) setHasExpired(true);
+        let difference = Math.abs(eventTime - now) / 1000;
 
-      const days = Math.floor(difference / 86400);
-      difference -= days * 86400;
+        const days = Math.floor(difference / 86400);
+        difference -= days * 86400;
 
-      const hours = Math.floor(difference / 3600) % 24;
-      difference -= hours * 3600;
+        const hours = Math.floor(difference / 3600) % 24;
+        difference -= hours * 3600;
 
-      const minutes = Math.floor(difference / 60) % 60;
-      difference -= minutes * 60;
+        const minutes = Math.floor(difference / 60) % 60;
+        difference -= minutes * 60;
 
-      const seconds = Math.round(difference % 60);
+        const seconds = Math.round(difference % 60);
 
-      const timeDetails = { days, hours, minutes, seconds };
-      for (const key in timeDetails) {
-        if (timeDetails[key].toString().length < 2)
-          timeDetails[key] = `0${timeDetails[key]}`;
-      }
-      if (seconds == "60") minutes = timeLeft.minutes;
-      if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
+        const timeDetails = { days, hours, minutes, seconds };
+        for (const key in timeDetails) {
+          if (timeDetails[key].toString().length < 2)
+            timeDetails[key] = `0${timeDetails[key]}`;
+        }
+        if (seconds == "60") minutes = minuteRef?.current?.innerText;
+        if (timeDetails["seconds"] == "60") timeDetails["seconds"] = "00";
 
-      return timeDetails;
-    };
-    setInterval(() => {
-      setTimeLeft(getTimeLeft());
-    }, 1000);
-  }, []);
+        if (dayRef !== null) {
+          dayRef.current.innerText = timeDetails.days;
+          hourRef.current.innerText = timeDetails.hours;
+          minuteRef.current.innerText = timeDetails.minutes;
+          secondRef.current.innerText = timeDetails.seconds;
+        }
+        return timeDetails;
+      };
+      interval = setInterval(() => {
+        setTimeLeft();
+      }, 1000);
+    }
+    if (hasExpired) {
+      clearInterval(interval);
+    }
+  }, [hasExpired, now]);
 
   return (
     <div
       className={`flex gap-x-2 md:gap-x-4 lg:gap-x-8 xl:gap-x-10 mb-14 lg:my-8 ${styles["container"]}`}
     >
-      <TimeBox type="day" number={timeLeft.days} />
-      <TimeBox type="hour" number={timeLeft.hours} />
-      <TimeBox type="minute" number={timeLeft.minutes} />
-      <TimeBox number={timeLeft.seconds} />
+      <TimeBox type="day" ref={dayRef} />
+      <TimeBox type="hour" ref={hourRef} />
+      <TimeBox type="minute" ref={minuteRef} />
+      <TimeBox ref={secondRef} />
     </div>
   );
 }

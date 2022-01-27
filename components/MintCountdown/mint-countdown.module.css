@@ -4,7 +4,13 @@
 .container .time-item {
   border: 2px solid rgba(184, 186, 191, 0.2);
   background-color: #272728;
-  padding: 20px;
+  padding: 12px;
   /* width: 60px; */
   text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+  .container .time-item {
+    padding: 20px;
+  }
 }

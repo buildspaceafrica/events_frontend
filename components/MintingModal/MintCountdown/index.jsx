@@ -7,7 +7,7 @@ function MintCountdown(props) {
   const minuteRef = useRef(null);
   const secondRef = useRef(null);
   const [hasExpired, setHasExpired] = useState(false);
-  const eventTime = new Date(2022, 0, 26, 24);
+  const eventTime = new Date(2022, 0, 27, 12);
   const now = new Date().getTime();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function MintCountdown(props) {
     if (eventTime.getTime() < now) setHasExpired(true);
     if (eventTime.getTime() >= now) {
       const setTimeLeft = () => {
-        const eventTime = new Date(2022, 0, 26, 24);
+        const eventTime = new Date(2022, 0, 27, 12);
         const now = new Date().getTime();
         if (eventTime.getTime() < now) setHasExpired(true);
         let difference = Math.abs(eventTime - now) / 1000;

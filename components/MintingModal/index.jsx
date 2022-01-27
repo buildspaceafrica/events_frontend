@@ -40,7 +40,7 @@ function MintingModal({ isActive, setIsActive }) {
   return (
     <div ref={containerRef} className={containerClass} onClick={closeModal}>
       <div
-        className={`${styles["modal-body"]} p-10`}
+        className={`${styles["modal-body"]} p-8 md:p-10`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* <Congrats /> */}
