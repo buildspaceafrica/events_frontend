@@ -23,7 +23,7 @@ function Input({ type, onClick, label, className, id, name, formik, ...rest }) {
           {label}
         </label>
       )}
-      {msg && <span className={styles["msg"]}>{msg}</span>}
+      {msg && <span className={`hidden md:block ${styles["msg"]}`}>{msg}</span>}
       <input
         id={id ?? name}
         name={name ?? id}

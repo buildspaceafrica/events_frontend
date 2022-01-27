@@ -8,7 +8,7 @@ import { MintTicket } from "../../../services/mintService";
 import { useMintingContext } from "../../../contexts/mintingContext";
 import { useAppContext } from "../../../contexts/appContext";
 
-function OTP() {
+function OTP({ onClose }) {
   const { address } = useAppContext();
   const { setScreen, setUserDetails, userDetails } = useMintingContext();
   const [otp, setOtp] = useState("");
@@ -80,7 +80,7 @@ function OTP() {
       </div>
       {/* <h3 className={styles.otp__timer}>4mins 2secs remaining</h3> */}
       <div className={styles.otp__button__con}>
-        <Button text="Cancel" />
+        <Button onClick={onClose} text="Cancel" />
         <Button
           disabled={!isVerified || isLoading}
           loading={isLoading}

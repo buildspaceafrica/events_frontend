@@ -54,7 +54,7 @@ function MintingModal({ isActive, setIsActive }) {
             <Wizard allSteps={["1", "2", "3"]} currentStep={screen} />
           </div>
         </div>
-        <div className={`${styles["screen-container"]} pb-8 pt-2`}>
+        <div className={`${styles["screen-container"]} pb-8 pt-6 md:pt-2`}>
           <div className={`${styles["screen-slide"]} ${styles[`s${screen}`]}`}>
             {/* <MintCountdown /> */}
             {screen === "1" && (
@@ -64,7 +64,7 @@ function MintingModal({ isActive, setIsActive }) {
             )}
             {screen === "2" && (
               <div className="px-8  md:px-10">
-                <OTP />
+                <OTP onClose={closeModal} />
               </div>
             )}
             {screen === "3" && (
