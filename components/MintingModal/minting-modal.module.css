@@ -54,13 +54,13 @@
 }
 
 .screen-container {
-  width: 470px;
+  width: 460px;
   overflow-x: hidden;
 }
 
 .screen-slide {
   position: relative;
-  width: 1410px;
+  width: 1380px;
   display: flex;
 }
 
@@ -69,14 +69,14 @@
 }
 
 .screen-slide.s2 {
-  left: -508px;
+  left: -460px;
 }
 
 .screen-slide.s2 {
-  left: -1016px;
+  left: -920px;
 }
 
 .screen-slide > * {
-  width: 470px;
+  width: 460px;
   height: 500px;
 }

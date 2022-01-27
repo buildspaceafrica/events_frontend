@@ -55,7 +55,7 @@ function MintingModal({ isActive, setIsActive }) {
         </div>
         <div className={`${styles["screen-container"]} pb-8 pt-2`}>
           <div
-            className={`gap-x-10 ${styles["screen-slide"]} ${
+            className={`${styles["screen-slide"]} ${
               styles[`s${screen}`]
             }`}
           >
