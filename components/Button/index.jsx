@@ -1,9 +1,8 @@
-import Image from "next/image";
 import React from "react";
 import styles from "./button.module.scss";
 import { TicketIcon } from "../../assets/images/svgs";
 
-function Button({ text, onClick, icon, type, disabled }) {
+function Button({ text, onClick, icon, type, disabled, loading }) {
   if (type === "primary") {
     return (
       <button
@@ -13,13 +12,14 @@ function Button({ text, onClick, icon, type, disabled }) {
         onClick={onClick && onClick}
       >
         <span>{text}</span>
-        {icon && <TicketIcon />}
+        {!loading && icon && <TicketIcon />}
+        {loading && (<span className={styles["loader"]}></span>)}
       </button>
     );
   } else {
     return (
       <button
-        disabled={disabled}
+        disabled={disabled || loading}
         className={styles.sec__button__con}
         onClick={onClick && onClick}
       >

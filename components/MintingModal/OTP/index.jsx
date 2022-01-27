@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import styles from "./otp.module.scss";
 import OtpInput from "react-otp-input";
 import { Button } from "../..";
@@ -7,12 +7,14 @@ import { VerifiedIcon } from "../../../assets/images/svgs";
 function OTP() {
   const [otp, setOtp] = useState("");
   const [isVerified, setIsVerified] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (value) => {
     setOtp(value);
   };
 
   const verifyOTP = useCallback(() => {
+    setIsLoading(true);
     console.log(otp);
   }, [otp]);
 
@@ -65,6 +67,8 @@ function OTP() {
       <div className={styles.otp__button__con}>
         <Button text="Cancel" />
         <Button
+          disabled={!isVerified || isLoading}
+          loading={isLoading}
           type="primary"
           text="Mint NFT"
           onClick={() => setIsDisplayingModal(true)}
