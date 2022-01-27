@@ -70,7 +70,7 @@ function IndexPage() {
                     10:00AM (WAT)
                   </span>
                 </div>
-                <AddToCalender />
+                {/* <AddToCalender /> */}
               </div>
             </div>
           </div>
