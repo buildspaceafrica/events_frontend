@@ -11,3 +11,4 @@ export * from "./Countdown";
 export * from "./Wizard";
 export * from "./MintingModal/MintCountdown";
 export * from "./CloseButton"
+export * from "./ConfettiShower"

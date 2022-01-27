@@ -13,11 +13,6 @@ function Video() {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
-
-      {/* <span className={styles.video__action}>
-        <PlayButton />
-        <h2>Play Promotional Video</h2>
-      </span> */}
     </div>
   );
 }

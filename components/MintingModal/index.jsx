@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { RadioBox, Button, Input, CloseButton, Wizard } from "../../components";
+import { CloseButton, Wizard, ConfettiShower } from "../../components";
 import Congrats from "./Congrats";
 
 import styles from "./minting-modal.module.css";
@@ -41,6 +41,7 @@ function MintingModal({ isActive, setIsActive }) {
 
   return (
     <div ref={containerRef} className={containerClass} onClick={closeModal}>
+      {screen === "3" && isActive && <ConfettiShower />}
       <div
         className={`${styles["modal-body"]} `}
         onClick={(e) => e.stopPropagation()}
@@ -68,7 +69,7 @@ function MintingModal({ isActive, setIsActive }) {
             )}
             {screen === "3" && (
               <div className="px-8  md:px-10">
-                <Congrats />
+                <Congrats onClose={closeModal} />
               </div>
             )}
 
