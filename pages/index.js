@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Add, Calendar, Clock } from "../assets/images/svgs";
+import { Calendar, Clock } from "../assets/images/svgs";
 import { Header, MintingModal, Button, Video, Countdown } from "../components";
-import AddToCalender from "../components/AddToCalender";
 import styles from "./index-page.module.scss";
 
 function IndexPage() {
