@@ -4,14 +4,17 @@ import "tailwindcss/tailwind.css";
 
 import "../styles/index.css";
 import { AppProvider } from "../contexts/appContext";
+import { MintingProvider } from "../contexts/mintingContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <ToastContainer position="top-center" autoClose={3000} />
-      <AppProvider>
-        <Component {...pageProps} />
-      </AppProvider>
+      <MintingProvider>
+        <AppProvider>
+          <Component {...pageProps} />
+        </AppProvider>
+      </MintingProvider>
     </>
   );
 }

@@ -1,12 +1,38 @@
 import React from "react";
 import styles from "./input.module.scss";
 
-function Input({ label, placeholder, msg, value, onchange }) {
+function Input({ type, onClick, label, className, id, name, formik, ...rest }) {
+  const error = formik?.touched[name] && formik?.errors?.[name];
+  let classes = `${styles.input__con} ${className} `;
+  if (error) classes += styles["error"];
+  let placeholder = rest?.placeholder;
+  let msg = rest?.msg
+  delete rest.msg
+  if (formik) {
+    Object.assign(rest, {
+      onChange: formik?.handleChange,
+      onBlur: formik?.handleBlur,
+      value: formik?.values[name],
+    });
+  }
+
   return (
-    <div className={styles.input__con}>
-      <label htmlFor="email">{label}</label>
-      {msg && <span>{msg}</span>}
-      <input type="text" placeholder={placeholder} />
+    <div className={classes}>
+      {label && (
+        <label className="" htmlFor={name}>
+          {label}
+        </label>
+      )}
+      {msg && <span className={styles["msg"]}>{msg}</span>}
+      <input
+        id={id ?? name}
+        name={name ?? id}
+        type={type}
+        onClick={onClick}
+        {...rest}
+        placeholder={placeholder}
+      />
+      {error && <span className={`${styles["error-message"]}`}>{error}</span>}
     </div>
   );
 }
