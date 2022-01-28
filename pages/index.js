@@ -87,7 +87,7 @@ function IndexPage() {
                   </span>
                   <a href="mailto:supports@buildspace.africa">
                     <span className="orange-gradient-text">
-                      support@buildspace.africa
+                    supports@buildspace.africa
                     </span>
                   </a>
                 </div>
