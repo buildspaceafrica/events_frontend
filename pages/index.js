@@ -85,7 +85,7 @@ function IndexPage() {
                   <span className="block pr-2">
                     For enquiries or complaints, send an email to
                   </span>
-                  <a href="mailto:support@buildspace.africa">
+                  <a href="mailto:supports@buildspace.africa">
                     <span className="block orange-gradient-text">
                       support@buildspace.africa
                     </span>
