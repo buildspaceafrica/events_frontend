@@ -23,7 +23,6 @@ function UserInfo({ onClose, onContinue }) {
     name: "",
     email: "",
     isAvailable: "",
-    Yes: "",
     No: "",
   };
 
@@ -74,7 +73,7 @@ function UserInfo({ onClose, onContinue }) {
 
       <p>Will you attend the event physically?</p>
       <div className="my-2">
-        <RadioBox formik={formik} name="isAvailable" options={["Yes", "No"]} />
+        <RadioBox formik={formik} name="isAvailable" options={["No"]} />
       </div>
       <br className="my-5" />
       <div className="flex justify-end">
