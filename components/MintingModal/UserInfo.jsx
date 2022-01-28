@@ -28,14 +28,18 @@ function UserInfo({ onClose, onContinue }) {
   };
 
   const handleSubmit = async (values) => {
-    const isAvailable = values.isAvailable === "Yes" ? true : false;
-    values = { name: values.name, email: values.email, isAvailable };
-    setIsLoading(true);
-    setUserDetails(values);
-    await RegisterUser(values);
-    setIsLoading(false);
-    toast.success("User was registered successfully");
-    setScreen("2");
+    try {
+      const isAvailable = values.isAvailable === "Yes" ? true : false;
+      values = { name: values.name, email: values.email, isAvailable };
+      setIsLoading(true);
+      setUserDetails(values);
+      await RegisterUser(values);
+      setIsLoading(false);
+      toast.success("User was registered successfully");
+      setScreen("2");
+    } catch (error) {
+      setIsLoading(false);
+    }
   };
 
   const formik = useFormik({

@@ -4,8 +4,8 @@
 
 @tailwindcss /utilities;
 
-@import url(https://fonts.googleapis.com/css?family=Blinker:300,400,500,550,700,800);
-@import url(https://fonts.googleapis.com/css?family=Inter:300,400,500,550);
+@import url("https://fonts.googleapis.com/css?family=Blinker:300,400,500,550,700,800");
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,500,550");
 
 :root {
   --app-purple: #7611f7;
