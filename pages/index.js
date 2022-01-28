@@ -68,7 +68,9 @@ function IndexPage() {
               <div className={`order-1 `}>
                 <Countdown />
               </div>
-              <div className={`order-2 md:order-3 ${styles.clock__bottom}`}>
+              <div
+                className={`flex-wrap md:flex-nowrap gap-y-4 md:gap-y-0  order-2 md:order-3 ${styles.clock__bottom}`}
+              >
                 <div className={styles.clock__bottom__left}>
                   <span>
                     <Calendar className="mr-2" />
@@ -78,6 +80,16 @@ function IndexPage() {
                     <Clock className="mr-2" />
                     10:00AM (WAT)
                   </span>
+                </div>
+                <div className="text-white">
+                  <span className="block pr-2">
+                    For enquiries or complaints, send an email to
+                  </span>
+                  <a href="mailto:support@buildspace.africa">
+                    <span className="block orange-gradient-text">
+                      support@buildspace.africa
+                    </span>
+                  </a>
                 </div>
                 {/* <AddToCalender /> */}
               </div>
