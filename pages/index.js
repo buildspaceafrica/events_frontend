@@ -78,7 +78,7 @@ function IndexPage() {
                   </span>
                   <span className="mt-5">
                     <Clock className="mr-2" />
-                    10:00AM (WAT)
+                    10:30AM (WAT)
                   </span>
                 </div>
                 <div className="text-white">

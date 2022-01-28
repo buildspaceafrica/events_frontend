@@ -12,11 +12,11 @@ function Countdown(props) {
 
   useEffect(() => {
     let interval;
-    const eventTime = new Date(2022, 0, 29, 10);
+    const eventTime = new Date(2022, 0, 29, 10, 30);
     if (eventTime.getTime() < now) setHasExpired(true);
     if (eventTime.getTime() >= now) {
       const setTimeLeft = () => {
-        const eventTime = new Date(2022, 0, 29, 10);
+        const eventTime = new Date(2022, 0, 29, 10, 30);
         const now = new Date().getTime();
         if (eventTime.getTime() < now) setHasExpired(true);
         let difference = Math.abs(eventTime - now) / 1000;
