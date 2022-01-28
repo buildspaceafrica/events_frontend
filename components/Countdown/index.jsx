@@ -8,7 +8,9 @@ function Countdown(props) {
   const minuteRef = useRef(null);
   const secondRef = useRef(null);
   const [hasExpired, setHasExpired] = useState(false);
-  const now = new Date().getTime();
+  const venueTimeOffset = 3600;
+  const timezoneOffset = new Date().getTimezoneOffset() * 60 + venueTimeOffset;
+  const now = new Date().getTime() + timezoneOffset;
 
   useEffect(() => {
     let interval;
