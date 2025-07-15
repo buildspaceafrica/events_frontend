@@ -1,104 +1,163 @@
-import Head from "next/head";
-import { toast } from "react-toastify";
-import { useState } from "react";
-import { Calendar, Clock } from "../assets/images/svgs";
-import { Header, MintingModal, Button, Video, Countdown } from "../components";
-import { useAppContext } from "../contexts/appContext";
-import styles from "./index-page.module.scss";
+import React from 'react';
+import { Layout } from '../components/Layout';
+import { Accomplishments } from '../components/Accomplishments';
+import { Button } from '../components';
+import styles from './index.module.scss';
 
-function IndexPage() {
-  const { isConnected } = useAppContext();
-  const [isDisplayingModal, setIsDisplayingModal] = useState(false);
-
-  async function displayUnconnectedMessage() {
-    toast.error("Please Connect your Wallet first");
+const teamMembers = [
+  {
+    id: 1,
+    name: "Chidiebere Ekennia",
+    role: "Community Lead",
+    image: "/images/team1.jpg",
+    bio: "Passionate about building Web3 communities across Africa"
+  },
+  {
+    id: 2,
+    name: "Joshua Nwankwo",
+    role: "Technical Lead",
+    image: "/images/team2.jpg",
+    bio: "Blockchain developer and educator"
+  },
+  {
+    id: 3,
+    name: "Community Member",
+    role: "Developer Relations",
+    image: "/images/team3.jpg",
+    bio: "Connecting developers with Web3 opportunities"
+  },
+  {
+    id: 4,
+    name: "Community Member",
+    role: "Content Creator",
+    image: "/images/team4.jpg",
+    bio: "Creating educational content for Web3 learning"
   }
+];
+
+export default function HomePage() {
+  const handleImageError = (e) => {
+    e.target.src = `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face`;
+  };
 
   return (
-    <>
-      <Head>
-        <link rel="icon" href="./favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta
-          name="description"
-          content="Welcome to the official launch of the first community event by Buildspace Africa. We are an extension of the buildspace community that aims to help africans to explore Web3 and the Blockchain, create amazing solutions and improve Web3 Adoption on the Continent."
-        />
-        <meta
-          name="keywords"
-          content="Buildspace Africa, Buildspace, Let's Talk Web3, Web3, Blockchain, Chidiebere Ekennia, Joshua Nwankwo"
-        ></meta>
-        <title>BuildSpace Africa | Home</title>
-      </Head>
-      <div className={styles.event__con}>
-        <MintingModal
-          isActive={isDisplayingModal}
-          setIsActive={setIsDisplayingModal}
-        />
-        <div className={styles.event__inner__con}>
-          <Header />
-          <div
-            className={`${styles.container} container py-8 lg:pt-5 grid grid-cols-2 lg:gap-x-10`}
-          >
-            <div className={`lg:mt-10 ${styles.left__con}`}>
-              <h5 className="hidden md:block">Welcome to a new era!</h5>
-              <h1>
-                Buildspace <span>Africa</span> Conference 2022 is coming!
+    <Layout 
+      title="Buildspace Africa - Building the Future of Web3 in Africa"
+      description="Join Buildspace Africa in building the future of Web3 across the continent. Learn, build, and connect with fellow African developers in the blockchain space."
+    >
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className="container">
+          <div className={styles.heroContent}>
+            <div className={styles.heroText}>
+              <h1 className={styles.heroTitle}>
+                Building the Future of <span>Web3</span> in Africa
               </h1>
-              <h6 className="pt-5">
-                Secure your position for a spot at the physical event by minting
-                an NFT ticket that would be required to attend the event.
-              </h6>
-              <div className="py-12 flex justify-center lg:justify-start">
-                <Button
-                  type="primary"
-                  text="Mint NFT"
-                  icon={true}
-                  onClick={() => {
-                    if (isConnected) setIsDisplayingModal(true);
-                    if (!isConnected) displayUnconnectedMessage();
-                  }}
-                />
+              <p className={styles.heroDescription}>
+                Buildspace Africa is an extension of the global buildspace community, 
+                dedicated to helping Africans explore Web3 and blockchain technology, 
+                create amazing solutions, and improve Web3 adoption across the continent.
+              </p>
+              <div className={styles.heroActions}>
+                <Button type="primary" text="Join Community" />
+                <Button text="Learn More" />
               </div>
             </div>
-            <div className={`${styles.right__con} flex flex-col`}>
-              <div className="my-10 lg:my-0 order-3 md:order-1">
-                <Video />
-              </div>
-              <div className={`order-1 `}>
-                <Countdown />
-              </div>
-              <div
-                className={`flex-wrap md:flex-nowrap gap-y-4 md:gap-y-0  order-2 md:order-3 ${styles.clock__bottom}`}
-              >
-                <div className={styles.clock__bottom__left}>
-                  <span>
-                    <Calendar className="mr-2" />
-                    29th January, 2022
-                  </span>
-                  <span className="mt-5">
-                    <Clock className="mr-2" />
-                    10:30AM (WAT)
-                  </span>
-                </div>
-                <div className="text-white">
-                  <span className="block pr-2">
-                    For enquiries or complaints, send an email to
-                  </span>
-                  <a href="mailto:supports@buildspace.africa">
-                    <span className="orange-gradient-text">
-                    supports@buildspace.africa
-                    </span>
-                  </a>
-                </div>
-                {/* <AddToCalender /> */}
-              </div>
+            <div className={styles.heroVisual}>
+              <div className={styles.heroPattern}></div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* Mission, Vision, Goals Section */}
+      <section className={styles.mission}>
+        <div className="container">
+          <div className={styles.missionGrid}>
+            <div className={styles.missionCard}>
+              <div className={styles.cardIcon}>🎯</div>
+              <h3>Our Mission</h3>
+              <p>
+                To empower African developers and entrepreneurs with the knowledge, 
+                tools, and community support needed to build innovative Web3 solutions 
+                that address local and global challenges.
+              </p>
+            </div>
+            
+            <div className={styles.missionCard}>
+              <div className={styles.cardIcon}>🔮</div>
+              <h3>Our Vision</h3>
+              <p>
+                To establish Africa as a leading hub for Web3 innovation, where 
+                talented developers create groundbreaking blockchain applications 
+                that drive economic growth and social impact.
+              </p>
+            </div>
+            
+            <div className={styles.missionCard}>
+              <div className={styles.cardIcon}>🚀</div>
+              <h3>Our Goals</h3>
+              <p>
+                Foster a thriving Web3 ecosystem through education, mentorship, 
+                community building, and creating opportunities for African developers 
+                to participate in the global blockchain economy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Accomplishments Section */}
+      <Accomplishments />
+
+      {/* Team Section */}
+      <section className={styles.team}>
+        <div className="container">
+          <div className={styles.teamHeader}>
+            <h2 className={styles.teamTitle}>Meet the <span>Team</span></h2>
+            <p className={styles.teamSubtitle}>
+              The passionate individuals driving Web3 adoption across Africa
+            </p>
+          </div>
+          
+          <div className={styles.teamGrid}>
+            {teamMembers.map((member) => (
+              <div key={member.id} className={styles.teamCard}>
+                <div className={styles.teamImageWrapper}>
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className={styles.teamImage}
+                    onError={handleImageError}
+                  />
+                </div>
+                <div className={styles.teamInfo}>
+                  <h4 className={styles.teamName}>{member.name}</h4>
+                  <p className={styles.teamRole}>{member.role}</p>
+                  <p className={styles.teamBio}>{member.bio}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className={styles.cta}>
+        <div className="container">
+          <div className={styles.ctaContent}>
+            <h2 className={styles.ctaTitle}>Ready to Build the Future?</h2>
+            <p className={styles.ctaDescription}>
+              Join our community of African Web3 builders and start your journey 
+              into blockchain development today.
+            </p>
+            <div className={styles.ctaActions}>
+              <Button type="primary" text="Get Started" icon={true} />
+              <Button text="View Events" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
 }
-
-export default IndexPage;
