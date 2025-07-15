@@ -1,0 +1,160 @@
+.header {
+  background-color: rgba(11, 1, 6, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(184, 186, 191, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  color: #b8babf;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &:hover {
+    color: #ffffff;
+  }
+  
+  &.active {
+    color: #ffffff;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #d6ff7f 0%, #00b3cc 100%);
+      border-radius: 1px;
+    }
+  }
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 18px;
+  position: relative;
+  
+  span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 1px;
+    position: absolute;
+    transition: all 0.3s ease;
+    
+    &:nth-child(1) {
+      top: 0;
+    }
+    
+    &:nth-child(2) {
+      top: 8px;
+    }
+    
+    &:nth-child(3) {
+      top: 16px;
+    }
+  }
+  
+  &.open {
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        top: 8px;
+      }
+      
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 8px;
+      }
+    }
+  }
+}
+
+.mobileNav {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(11, 1, 6, 0.98);
+  border-top: 1px solid rgba(184, 186, 191, 0.1);
+  padding: 1rem 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &.open {
+    max-height: 300px;
+    display: flex;
+  }
+}
+
+.mobileNavLink {
+  color: #b8babf;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: #ffffff;
+  }
+  
+  &.active {
+    color: #ffffff;
+    background: linear-gradient(90deg, #d6ff7f 0%, #00b3cc 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .desktopNav {
+    display: none;
+  }
+  
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  .mobileNav {
+    display: flex;
+  }
+}

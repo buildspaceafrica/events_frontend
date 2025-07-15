@@ -1,0 +1,35 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0B0106;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+}
+
+.footer {
+  background-color: #161717;
+  padding: 2rem 0;
+  margin-top: auto;
+  
+  p {
+    text-align: center;
+    color: #b8babf;
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+    
+    p {
+      font-size: 12px;
+      padding: 0 1rem;
+    }
+  }
+}
