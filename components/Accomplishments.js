@@ -45,7 +45,12 @@ export function Accomplishments() {
         
         <div className={styles.grid}>
           {accomplishments.map((accomplishment) => (
-            <div key={accomplishment.id} className={styles.card}>
+            <Link 
+              key={accomplishment.id} 
+              href={accomplishment.id === 1 ? "/events/1" : "/events"}
+              className={styles.cardLink}
+            >
+              <div className={styles.card}>
               <div className={styles.cardIcon}>
                 <span>{accomplishment.icon}</span>
               </div>
@@ -54,7 +59,8 @@ export function Accomplishments() {
                 <p className={styles.cardDescription}>{accomplishment.description}</p>
                 <span className={styles.cardDate}>{accomplishment.date}</span>
               </div>
-            </div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

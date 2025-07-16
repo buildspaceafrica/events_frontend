@@ -140,6 +140,12 @@ export default function EventsPage() {
                       </div>
                     </div>
                   )}
+                  
+                  <div className={styles.eventActions}>
+                    <Link href={`/events/${event.id}`}>
+                      <Button type="primary" text="View Event Details" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -189,8 +195,10 @@ export default function EventsPage() {
                     )}
                     
                     <div className={styles.eventActions}>
-                      <Button type="primary" text="Get Notified" />
-                      <Button text="Learn More" />
+                      <Link href={`/events/${event.id}`}>
+                        <Button type="primary" text="View Event Details" />
+                      </Link>
+                      <Button text="Get Notified" />
                     </div>
                   </div>
                 </div>
