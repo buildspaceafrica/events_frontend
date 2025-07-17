@@ -65,37 +65,18 @@ export function Accomplishments() {
                   </div>
                 </a>
               ) : (
-                <Link 
-                  href={accomplishment.link}
-                  className={styles.cardLink}
-                >
-                  <div className={styles.card}>
-                    <div className={styles.cardIcon}>
-                      <span>{accomplishment.icon}</span>
-                    </div>
-                    <div className={styles.cardContent}>
-                      <h3 className={styles.cardTitle}>{accomplishment.title}</h3>
-                      <p className={styles.cardDescription}>{accomplishment.description}</p>
-                      <span className={styles.cardDate}>{accomplishment.date}</span>
-                    </div>
+                <div className={styles.card}>
+                  <div className={styles.cardIcon}>
+                    <span>{accomplishment.icon}</span>
                   </div>
-                </Link>
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.cardTitle}>{accomplishment.title}</h3>
+                    <p className={styles.cardDescription}>{accomplishment.description}</p>
+                    <span className={styles.cardDate}>{accomplishment.date}</span>
+                  </div>
+                </div>
               )}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-              </div>
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>{accomplishment.title}</h3>
-                <p className={styles.cardDescription}>{accomplishment.description}</p>
-                <span className={styles.cardDate}>{accomplishment.date}</span>
-              </div>
-              </div>
-            </Link>
           ))}
         </div>
       </div>
