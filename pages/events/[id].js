@@ -103,7 +103,6 @@ export default function EventDetailPage() {
   const router = useRouter();
   const { id } = router.query;
   const [isDisplayingModal, setIsDisplayingModal] = useState(false);
-  const containerRef = useRef();
   
   const event = events.find(e => e.id === parseInt(id));
   
@@ -148,9 +147,11 @@ export default function EventDetailPage() {
                   <span className={styles.eventDate}>{event.date}</span>
                   {event.time && <span className={styles.eventTime}>{event.time}</span>}
                   }
-                  {event.location && <span className={styles.eventLocation}>{event.location}</span>}
+                  {event.                  }
+location && <span className={styles.eventLocation}>{event.location}</span>}
                   }
-                </div>
+                       }
+           </div>
                 <h1 className={styles.heroTitle}>{event.title}</h1>
                 <p className={styles.heroDescription}>{event.fullDescription}</p>
                 
@@ -308,8 +309,50 @@ export default function EventDetailPage() {
           </div>
         </section>
 
-        {/* Minting Modal */}
-        <MintingModal
+        {/* Minting Modal or Disabled Modal */}
+        {event.hasEnded ? (
+          <div 
+            ref={containerRef} 
+            className={`${styles.modalContainer} ${isDisplayingModal ? styles.active : ''}`} 
+            onClick={() => setIsDisplayingModal(false)}
+          >
+            <div 
+              className={styles.disabledModal}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={styles.disabledModalContent}>
+                <div className={styles.disabledIcon}>⏰</div>
+                <h2>Minting Disabled</h2>
+                <p>
+                  This event has already concluded and NFT minting is no longer available. 
+                  Thank you for your interest in Buildspace Africa!
+                </p>
+                <div className={styles.disabledActions}>
+                  <Button 
+                    type="primary" 
+                    text="Close" 
+                    onClick={() => setIsDisplayingModal(false)}
+                  />
+                  <a href="https://x.com/buildspaceafric" target="_blank" rel="noopener noreferrer">
+                    <Button text="Follow Us" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <MintingModal
+            isActive={isDisplayingModal}
+            setIsActive={setIsDisplayingModal}
+          />
+        )}
+      </Layout>
+    </MintingProvider>
+  );
+}
+
+// Add useRef import at the top
+import React, { useState, useRef, useEffect } from 'react';
           isActive={isDisplayingModal}
           setIsActive={setIsDisplayingModal}
         />
