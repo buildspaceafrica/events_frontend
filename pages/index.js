@@ -65,6 +65,7 @@ export default function HomePage() {
             </div>
             <div className={styles.heroVisual}>
               <div className={styles.heroPattern}></div>
+              <div className={styles.heroIcon}>🚀</div>
             </div>
           </div>
         </div>

@@ -85,6 +85,7 @@
   opacity: 0.8;
   animation: float 4s ease-in-out infinite;
   z-index: 1;
+  position: relative;
 }
 
 @keyframes float {
