@@ -138,112 +138,6 @@
   }
 }
 
-.gallerySection {
-  margin-bottom: 80px;
-  text-align: center;
-}
-
-.galleryGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.galleryItem {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  }
-  
-  img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  &:hover img {
-    transform: scale(1.05);
-  }
-}
-
-.modalContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-.disabledModal {
-  background: #0f1010;
-  border: 1px solid rgba(184, 186, 191, 0.2);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
-
-.modalContainer.active .disabledModal {
-  transform: scale(1);
-}
-
-.disabledModalContent {
-  color: #ffffff;
-}
-
-.disabledIcon {
-  font-size: 64px;
-  margin-bottom: 24px;
-  opacity: 0.8;
-}
-
-.disabledModalContent h2 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 16px;
-  background: -webkit-linear-gradient(45deg, #ff6b6b, #ffa500 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.disabledModalContent p {
-  font-size: 16px;
-  color: #b8babf;
-  line-height: 1.6;
-  margin-bottom: 32px;
-}
-
-.disabledActions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .detailsSection {
   padding: 100px 0;
   background-color: #0B0106;
@@ -441,8 +335,12 @@
     font-size: 32px;
   }
   
-  .detailCard {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding: 32px 24px;
+  }
+  
+  .galleryItem img {
+    height: 200px;
   }
   
   .agendaItem {
