@@ -12,3 +12,8 @@ export * from "./Wizard";
 export * from "./MintingModal/MintCountdown";
 export * from "./CloseButton"
 export * from "./ConfettiShower"
+export * from "./Accomplishments";
+export * from "./Layout";
+export * from "./Footer";
+export * from "./EventGallery"
+export * from "./ErrorModal";
