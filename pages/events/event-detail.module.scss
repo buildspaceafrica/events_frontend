@@ -1,0 +1,386 @@
+.hero {
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, #0B0106 0%, #161717 100%);
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.heroText {
+  z-index: 2;
+}
+
+.eventMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  
+  span {
+    background: rgba(214, 255, 127, 0.1);
+    color: #d6ff7f;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.heroTitle {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  
+  background: -webkit-linear-gradient(45deg, #d6ff7f, #00b3cc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroDescription {
+  font-size: 18px;
+  color: #b8babf;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.eventEndedNotice {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  
+  .endedText {
+    color: #ff6b6b;
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .endedDescription {
+    color: #b8babf;
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.ctaEndedNotice {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: #ff6b6b;
+  font-weight: 600;
+  text-align: center;
+}
+
+.heroImage {
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.videoSection {
+  padding: 100px 0;
+  background-color: #0f1010;
+}
+
+.videoContent {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 40px;
+  
+  background: -webkit-linear-gradient(45deg, #6699ff, #ff3366 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.detailsSection {
+  padding: 100px 0;
+  background-color: #0B0106;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  
+  .agendaCard {
+    grid-column: 1 / -1;
+  }
+}
+
+.detailCard {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(184, 186, 191, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba(214, 255, 127, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.highlightsList, .speakersList {
+  list-style: none;
+  padding: 0;
+  
+  li {
+    font-size: 16px;
+    color: #b8babf;
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.5;
+    
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #d6ff7f;
+      font-weight: bold;
+    }
+  }
+}
+
+.speakersList li::before {
+  content: '👤';
+  
+  .sectionTitle {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+.agendaList {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.agendaItem {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  border-radius: 16px;
+  border-left: 4px solid #d6ff7f;
+}
+
+.agendaTime {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6699ff;
+  min-width: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.agendaContent {
+  flex: 1;
+  
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #b8babf;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.cta {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #161717 0%, #0B0106 100%);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 24px;
+  
+  background: -webkit-linear-gradient(45deg, #f26474, #f46a49, #fdcb97);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ctaDescription {
+  font-size: 18px;
+  color: #b8babf;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.notFound {
+  padding: 200px 0;
+  text-align: center;
+  
+  h1 {
+    font-size: 48px;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #b8babf;
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 80px 0 60px;
+  }
+  
+  .heroTitle {
+    font-size: 36px;
+  }
+  
+  .heroDescription {
+    font-size: 16px;
+  }
+  
+  .heroActions {
+    justify-content: center;
+  }
+  
+  .videoSection, .detailsSection, .cta {
+    padding: 60px 0;
+  }
+  
+  .sectionTitle, .ctaTitle {
+    font-size: 32px;
+  }
+  
+  .galleryGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  .galleryItem {
+    min-width: 280px;
+    max-width: 350px;
+    
+    img {
+      height: 200px;
+    }
+  }
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    padding: 32px 24px;
+  }
+  
+  .galleryItem img {
+    height: 220px;
+  }
+  
+  .agendaItem {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .agendaTime {
+    transition: transform 0.4s ease;
+  }
+  
+  .eventMeta {
+    transform: scale(1.08);
+  }
+}
