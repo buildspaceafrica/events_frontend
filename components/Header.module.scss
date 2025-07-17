@@ -21,6 +21,34 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  
+  a {
+    color: #b8babf;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &:hover {
+      color: #ffffff;
+    }
+    
+    &.active {
+      color: #ffffff;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #d6ff7f 0%, #00b3cc 100%);
+        border-radius: 1px;
+      }
+    }
+  }
 }
 
 .navLink {

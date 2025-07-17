@@ -31,7 +31,7 @@ export function Header() {
               <Link 
                 key={item.name} 
                 href={item.href}
-                className={`${styles.navLink} ${
+                className={`${
                   router.pathname === item.href ? styles.active : ''
                 }`}
               >
