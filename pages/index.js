@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { Layout } from '../components/Layout';
 import { Accomplishments } from '../components/Accomplishments';
 import { Button } from '../components';
@@ -153,8 +152,12 @@ export default function HomePage() {
               into blockchain development today.
             </p>
             <div className={styles.ctaActions}>
-              <Button type="primary" text="Get Started" icon={true} />
-              <Button text="View Events" />
+              <a href="https://x.com/buildspaceafric" target="_blank" rel="noopener noreferrer">
+                <Button type="primary" text="Get Started" icon={true} />
+              </a>
+              <Link href="/events">
+                <Button text="View Events" />
+              </Link>
             </div>
           </div>
         </div>

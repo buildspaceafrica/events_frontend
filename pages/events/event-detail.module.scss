@@ -56,6 +56,37 @@
   flex-wrap: wrap;
 }
 
+.eventEndedNotice {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  
+  .endedText {
+    color: #ff6b6b;
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .endedDescription {
+    color: #b8babf;
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.ctaEndedNotice {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: #ff6b6b;
+  font-weight: 600;
+  text-align: center;
+}
+
 .heroImage {
   img {
     width: 100%;

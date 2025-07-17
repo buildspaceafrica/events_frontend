@@ -226,8 +226,12 @@ export default function EventsPage() {
               to share their knowledge with our community.
             </p>
             <div className={styles.ctaActions}>
-              <Button type="primary" text="Apply to Speak" />
-              <Button text="Sponsor an Event" />
+              <a href="mailto:support@buildspace.africa?subject=Speaker Application" className={styles.ctaButton}>
+                <Button type="primary" text="Apply to Speak" />
+              </a>
+              <a href="mailto:support@buildspace.africa?subject=Event Sponsorship" className={styles.ctaButton}>
+                <Button text="Sponsor an Event" />
+              </a>
             </div>
           </div>
         </div>

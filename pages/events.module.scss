@@ -275,6 +275,11 @@
   flex-wrap: wrap;
 }
 
+.ctaButton {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     padding: 80px 0 60px;

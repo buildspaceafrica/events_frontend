@@ -260,12 +260,20 @@ export default function EventDetailPage() {
               </p>
               <div className={styles.ctaActions}>
                 {event.type === 'past' ? (
-                  <Button 
-                    type="primary" 
-                    text="Mint NFT Ticket" 
-                    icon={true}
-                    onClick={() => setIsDisplayingModal(true)}
-                  />
+                  <>
+                    {event.hasEnded ? (
+                      <div className={styles.ctaEndedNotice}>
+                        <span>Event has ended - Minting is no longer available</span>
+                      </div>
+                    ) : (
+                      <Button 
+                        type="primary" 
+                        text="Mint NFT Ticket" 
+                        icon={true}
+                        onClick={() => setIsDisplayingModal(true)}
+                      />
+                    )}
+                  </>
                 ) : (
                   <Button type="primary" text="Join Waitlist" />
                 )}

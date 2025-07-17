@@ -45,14 +45,49 @@ export function Accomplishments() {
         
         <div className={styles.grid}>
           {accomplishments.map((accomplishment) => (
-            <Link 
-              key={accomplishment.id} 
-              href={accomplishment.id === 1 ? "/events/1" : "/events"}
-              className={styles.cardLink}
-            >
-              <div className={styles.card}>
-              <div className={styles.cardIcon}>
-                <span>{accomplishment.icon}</span>
+            <div key={accomplishment.id}>
+              {accomplishment.linkType === 'external' ? (
+                <a 
+                  href={accomplishment.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardLink}
+                >
+                  <div className={styles.card}>
+                    <div className={styles.cardIcon}>
+                      <span>{accomplishment.icon}</span>
+                    </div>
+                    <div className={styles.cardContent}>
+                      <h3 className={styles.cardTitle}>{accomplishment.title}</h3>
+                      <p className={styles.cardDescription}>{accomplishment.description}</p>
+                      <span className={styles.cardDate}>{accomplishment.date}</span>
+                    </div>
+                  </div>
+                </a>
+              ) : (
+                <Link 
+                  href={accomplishment.link}
+                  className={styles.cardLink}
+                >
+                  <div className={styles.card}>
+                    <div className={styles.cardIcon}>
+                      <span>{accomplishment.icon}</span>
+                    </div>
+                    <div className={styles.cardContent}>
+                      <h3 className={styles.cardTitle}>{accomplishment.title}</h3>
+                      <p className={styles.cardDescription}>{accomplishment.description}</p>
+                      <span className={styles.cardDate}>{accomplishment.date}</span>
+                    </div>
+                  </div>
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{accomplishment.title}</h3>

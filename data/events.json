@@ -1,0 +1,61 @@
+@@ .. @@
+     "type": "past",
+     "youtubeId": "my-DR6xY_TA",
+     "image": "/images/conference-2022.jpg",
++    "hasEnded": true,
+     "highlights": [
+       "200+ attendees from across Africa",
+@@ .. @@
+     "type": "past",
+     "image": "/images/bootcamp-2022.jpg",
++    "hasEnded": true,
+     "highlights": [
+       "50+ developers trained",
+@@ .. @@
+-  },
+-  {
+-    "id": 3,
+-    "title": "Buildspace Africa Summit 2024",
+-    "description": "Join us for our biggest event yet! A comprehensive summit covering the latest in Web3, AI integration with blockchain, and Africa's role in the global digital economy.",
+-    "fullDescription": "The most anticipated Web3 event in Africa is coming! This summit will bring together international speakers, showcase cutting-edge AI and blockchain integration, and highlight Africa's growing role in the global digital economy. Don't miss this opportunity to be part of the future.",
+-    "date": "Coming Soon - 2024",
+-    "time": "TBA",
+-    "location": "TBA",
+-    "type": "upcoming",
+-    "image": "/images/summit-2024.jpg",
+-    "highlights": [
+-      "International speakers",
+-      "AI & Blockchain integration",
+-      "Startup pitch competition",
+-      "Investment opportunities",
+-      "Community awards"
+-    ],
+-    "speakers": [
+-      {
+-        "name": "International Web3 leaders",
+-        "role": "TBA",
+-        "bio": "Leading figures in the global Web3 ecosystem"
+-      },
+-      {
+-        "name": "AI and blockchain experts",
+-        "role": "TBA", 
+-        "bio": "Experts in AI and blockchain integration"
+-      },
+-      {
+-        "name": "African tech innovators",
+-        "role": "TBA",
+-        "bio": "Pioneering African technology leaders"
+-      }
+-    ],
+-    "agenda": [
+-      { "time": "TBA", "title": "Opening Keynote", "description": "The future of Web3 in Africa" },
+-      { "time": "TBA", "title": "AI & Blockchain", "description": "Integration opportunities and challenges" },
+-      { "time": "TBA", "title": "Startup Showcase", "description": "African Web3 startups pitch competition" }
+-    ],
+-    "gallery": [
+-      "/images/events/summit-2024/gallery1.jpg",
+-      "/images/events/summit-2024/gallery2.jpg",
+-      "/images/events/summit-2024/gallery3.jpg"
+-    ]
+   }
+ ]
