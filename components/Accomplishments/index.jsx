@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styles from "./Accomplishments.module.scss";
+import styles from "./accomplishments.module.scss";
 
 const accomplishments = [
   {
