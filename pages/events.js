@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const events = [
   {
-    id: 1,
+    id: "buildspace-africa-conference-2022",
     title: "Buildspace Africa Conference 2022",
     description:
       "The inaugural Buildspace Africa blockchain conference brought together Web3 enthusiasts, developers, and innovators from across the continent. This groundbreaking event featured talks on blockchain fundamentals, DeFi, NFTs, and the future of Web3 in Africa.",
@@ -69,8 +69,7 @@ export default function EventsPage() {
                   <Image
                     src={event.image}
                     alt={event.title}
-                    width={600}
-                    height={400}
+                    layout="fill"
                     style={{ objectFit: "cover" }}
                     className={styles.eventImage}
                     onError={handleImageError}
@@ -142,8 +141,7 @@ export default function EventsPage() {
                     <Image
                       src={event.image}
                       alt={event.title}
-                      width={600}
-                      height={400}
+                      layout="fill"
                       style={{ objectFit: "cover" }}
                       className={styles.eventImage}
                       onError={handleImageError}

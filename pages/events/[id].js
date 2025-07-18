@@ -14,7 +14,7 @@ import styles from "./event-detail.module.scss";
 
 const events = [
   {
-    id: 1,
+    id: "buildspace-africa-conference-2022",
     title: "Buildspace Africa Conference 2022",
     description:
       "The inaugural Buildspace Africa blockchain conference brought together Web3 enthusiasts, developers, and innovators from across the continent. This groundbreaking event featured talks on blockchain fundamentals, DeFi, NFTs, and the future of Web3 in Africa.",
@@ -130,7 +130,7 @@ export default function EventDetailPage() {
   const [isErrorModalActive, setIsErrorModalActive] = useState(false);
   const [isSpeakerModalActive, setIsSpeakerModalActive] = useState(false);
 
-  const event = events.find((e) => e.id === parseInt(id));
+  const event = events.find((e) => e.id === id);
 
   const handleMintClick = () => {
     if (event?.type === "past") {

@@ -96,11 +96,9 @@ function EventGallery({ images, eventTitle }) {
               className={styles.galleryItem}
               onClick={() => handleImageClick(image, index)}
             >
-              <Image
+              <img
                 src={image}
                 alt={`${eventTitle} - Gallery ${index + 1}`}
-                width={400}
-                height={300}
                 style={{ objectFit: "cover" }}
                 onError={(e) => handleImageError(e, index)}
               />
@@ -164,11 +162,9 @@ function EventGallery({ images, eventTitle }) {
               </svg>
             </button>
 
-            <Image
+            <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              width={800}
-              height={600}
               style={{ objectFit: "contain" }}
               className={styles.lightboxImage}
             />
