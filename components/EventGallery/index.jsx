@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styles from './event-gallery.module.scss';
+import React, { useState, useEffect } from "react";
+import styles from "./event-gallery.module.scss";
 
 function EventGallery({ images, eventTitle }) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -9,7 +9,11 @@ function EventGallery({ images, eventTitle }) {
   const displayImages = images?.slice(0, 4) || [];
 
   const handleImageClick = (image, index) => {
-    setSelectedImage({ src: image, index, alt: `${eventTitle} - Gallery ${index + 1}` });
+    setSelectedImage({
+      src: image,
+      index,
+      alt: `${eventTitle} - Gallery ${index + 1}`,
+    });
     setIsLightboxOpen(true);
   };
 
@@ -24,32 +28,53 @@ function EventGallery({ images, eventTitle }) {
       setSelectedImage({
         src: images[newIndex],
         index: newIndex,
-        alt: `${eventTitle} - Gallery ${newIndex + 1}`
+        alt: `${eventTitle} - Gallery ${newIndex + 1}`,
       });
     }
   };
 
   const handleNextImage = () => {
-    if (selectedImage && selectedImage.index) {
+    if (selectedImage && selectedImage.index < images.length - 1) {
       const newIndex = selectedImage.index + 1;
       setSelectedImage({
         src: images[newIndex],
         index: newIndex,
-        alt: `${eventTitle} - Gallery ${newIndex + 1}`
+        alt: `${eventTitle} - Gallery ${newIndex + 1}`,
       });
     }
   };
 
-  const handleImageError = (e, index) => {
-    // Fallback images for different types
-    const fallbackImages = [
-      'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop'
-    ];
-    e.target.src = fallbackImages[index % fallbackImages.length];
-  };
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (!isLightboxOpen) return;
+
+      switch (event.key) {
+        case "ArrowLeft":
+          event.preventDefault();
+          handlePrevImage();
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          handleNextImage();
+          break;
+        case "Escape":
+          event.preventDefault();
+          handleLightboxClose();
+          break;
+        default:
+          break;
+      }
+    };
+
+    if (isLightboxOpen) {
+      document.addEventListener("keydown", handleKeyPress);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [isLightboxOpen, selectedImage]);
 
   if (!displayImages.length) {
     return null;
@@ -61,28 +86,40 @@ function EventGallery({ images, eventTitle }) {
         <h2 className={styles.galleryTitle}>Event Gallery</h2>
         <div className={styles.galleryGrid}>
           {displayImages.map((image, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={styles.galleryItem}
               onClick={() => handleImageClick(image, index)}
             >
-              <img 
-                src={image} 
+              <img
+                src={image}
                 alt={`${eventTitle} - Gallery ${index + 1}`}
                 onError={(e) => handleImageError(e, index)}
               />
               <div className={styles.galleryOverlay}>
                 <div className={styles.viewIcon}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 3H6C4.9 3 4 3.9 4 5V16C4 17.1 4.9 18 6 18H15C16.1 18 17 17.1 17 16V5C17 3.9 16.1 3 15 3ZM15 16H6V5H15V16Z" fill="currentColor"/>
-                    <path d="M19 7V19C19 20.1 18.1 21 17 21H7V19H17V7H19Z" fill="currentColor"/>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 3H6C4.9 3 4 3.9 4 5V16C4 17.1 4.9 18 6 18H15C16.1 18 17 17.1 17 16V5C17 3.9 16.1 3 15 3ZM15 16H6V5H15V16Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M19 7V19C19 20.1 18.1 21 17 21H7V19H17V7H19Z"
+                      fill="currentColor"
+                    />
                   </svg>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
+
         {images?.length > 4 && (
           <p className={styles.moreImagesText}>
             +{images.length - 4} more images available
@@ -93,50 +130,90 @@ function EventGallery({ images, eventTitle }) {
       {/* Lightbox Modal */}
       {isLightboxOpen && selectedImage && (
         <div className={styles.lightbox} onClick={handleLightboxClose}>
-          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <button 
+          <div
+            className={styles.lightboxContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
               className={styles.lightboxClose}
               onClick={handleLightboxClose}
               aria-label="Close lightbox"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
-            
-            <img 
-              src={selectedImage.src} 
+
+            <img
+              src={selectedImage.src}
               alt={selectedImage.alt}
               className={styles.lightboxImage}
-              onError={(e) => handleImageError(e, selectedImage.index)}
             />
-            
+
             <div className={styles.lightboxInfo}>
               <p>{selectedImage.alt}</p>
-              <span>{selectedImage.index + 1} / {images.length}</span>
+              <span>
+                {selectedImage.index + 1} / {images.length}
+              </span>
             </div>
-            
+
             {images.length > 1 && (
               <>
-                <button 
+                <button
                   className={`${styles.lightboxNav} ${styles.lightboxPrev}`}
                   onClick={handlePrevImage}
                   disabled={selectedImage.index === 0}
                   aria-label="Previous image"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 18L9 12L15 6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
-                
-                <button 
+
+                <button
                   className={`${styles.lightboxNav} ${styles.lightboxNext}`}
                   onClick={handleNextImage}
                   disabled={selectedImage.index === images.length - 1}
                   aria-label="Next image"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 18L15 12L9 6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </>

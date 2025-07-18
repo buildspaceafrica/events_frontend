@@ -1,13 +1,15 @@
-import React from 'react';
-import Head from 'next/head';
-import { Header } from '../Header';
-import styles from './Layout.module.scss';
+import React from "react";
+import Head from "next/head";
+import { Header } from "../Header";
+import styles from "./Layout.module.scss";
 
-export function Layout({ 
-  children, 
-  title = "Buildspace Africa", 
-  description = "Building the future of Web3 in Africa through education, community, and innovation." 
+export function Layout({
+  children,
+  title = "Buildspace Africa",
+  description = "Building the future of Web3 in Africa through education, community, and innovation.",
 }) {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <Head>
@@ -18,12 +20,13 @@ export function Layout({
       </Head>
       <div className={styles.layout}>
         <Header />
-        <main className={styles.main}>
-          {children}
-        </main>
+        <main className={styles.main}>{children}</main>
         <footer className={styles.footer}>
           <div className="container">
-            <p>&copy; 2024 Buildspace Africa. Building the future of Web3 in Africa.</p>
+            <p>
+              &copy; {currentYear} Buildspace Africa. Building the future of
+              Web3 in Africa.
+            </p>
           </div>
         </footer>
       </div>
