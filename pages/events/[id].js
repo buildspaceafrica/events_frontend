@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Button,
   MintingModal,
@@ -145,8 +146,8 @@ export default function EventDetailPage() {
         <div className={styles.notFound}>
           <div className="special-stuff">
             <h1>Event Not Found</h1>
-            <p>The event you're looking for doesn't exist.</p>
-            <Link href="/events">
+            <p>{`The event you're looking for doesn't exist.`}</p>
+            <Link href="/events" passHref>
               <Button type="primary" text="Back to Events" />
             </Link>
           </div>
@@ -199,7 +200,7 @@ export default function EventDetailPage() {
                       }
                     />
                   )}
-                  <Link href="/events">
+                  <Link href="/events" passHref>
                     <Button text="Back to Events" />
                   </Link>
                 </div>
@@ -207,9 +208,12 @@ export default function EventDetailPage() {
 
               <div className="w-full max-w-5xl mx-auto overflow-hidden rounded-xl">
                 <div className="aspect-[3/2] sm:aspect-[16/10] overflow-hidden">
-                  <img
+                  <Image
                     src={event.image}
                     alt={event.title}
+                    width={800}
+                    height={600}
+                    style={{ objectFit: "cover" }}
                     className="object-cover object-center w-full h-full"
                   />
                 </div>
@@ -265,9 +269,12 @@ export default function EventDetailPage() {
                         : speaker.image;
                     return (
                       <li key={index} className={styles.speakerItem}>
-                        <img
+                        <Image
                           src={image}
                           alt={name}
+                          width={50}
+                          height={50}
+                          style={{ objectFit: "cover" }}
                           className={styles.speakerAvatar}
                         />
                         <span>{name}</span>
@@ -317,7 +324,7 @@ export default function EventDetailPage() {
           setIsActive={setIsErrorModalActive}
           type="error"
           title="NFT Minting Unavailable"
-          message="NFT minting for this event has ended. This was a time-limited opportunity available only during the event period. Join our community to stay updated on future events"
+          message={`NFT minting for this event has ended. This was a time-limited opportunity available only during the event period. Join our community to stay updated on future events`}
         />
       </Layout>
     </MintingProvider>

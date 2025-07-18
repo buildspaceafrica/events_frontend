@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Layout } from "../components/Layout";
 import { Button, Accomplishments } from "../components";
 import Link from "next/link";
@@ -67,7 +68,7 @@ export default function HomePage() {
                 >
                   <Button type="primary" text="Join Community" />
                 </a>
-                <Link href="#team">
+                <Link href="#team" passHref>
                   <Button text="Learn More" />
                 </Link>
               </div>
@@ -77,9 +78,12 @@ export default function HomePage() {
             </div> */}
             <div className="w-full max-w-5xl mx-auto overflow-hidden rounded-xl">
               <div className="aspect-[3/2] sm:aspect-[16/11] overflow-hidden">
-                <img
+                <Image
                   src="/images/buildspace.jpg"
                   alt="Buildspace Africa team"
+                  width={800}
+                  height={600}
+                  style={{ objectFit: "cover" }}
                   className="object-cover object-center w-full h-full"
                 />
               </div>
@@ -151,9 +155,12 @@ export default function HomePage() {
             {teamMembers.map((member) => (
               <div key={member.id} className={styles.teamCard}>
                 <div className={styles.teamImageWrapper}>
-                  <img
+                  <Image
                     src={member.image}
                     alt={member.name}
+                    width={300}
+                    height={300}
+                    style={{ objectFit: "cover" }}
                     className={styles.teamImage}
                     onError={handleImageError}
                   />
@@ -186,7 +193,7 @@ export default function HomePage() {
               >
                 <Button type="primary" text="Get Started" icon={true} />
               </a>
-              <Link href="/events">
+              <Link href="/events" passHref>
                 <Button text="View Events" />
               </Link>
             </div>

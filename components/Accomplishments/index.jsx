@@ -34,8 +34,7 @@ export function Accomplishments() {
             Our <span>Accomplishments</span>
           </h2>
           <p className={styles.subtitle}>
-            Milestones that define our journey in building Africa's Web3
-            ecosystem
+            {`Milestones that define our journey in building Africa's Web3 ecosystem`}
           </p>
         </div>
 
@@ -67,7 +66,7 @@ export function Accomplishments() {
                   </div>
                 </a>
               ) : (
-                <Link href={accomplishment.link || ""}>
+                <Link href={accomplishment.link || ""} passHref>
                   <div className={styles.card}>
                     <div className={styles.cardIcon}>
                       <span>{accomplishment.icon}</span>

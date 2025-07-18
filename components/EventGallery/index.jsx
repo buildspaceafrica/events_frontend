@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import styles from "./event-gallery.module.scss";
 
 function EventGallery({ images, eventTitle }) {
@@ -22,7 +23,7 @@ function EventGallery({ images, eventTitle }) {
     setSelectedImage(null);
   };
 
-  const handlePrevImage = () => {
+  const handlePrevImage = useCallback(() => {
     if (selectedImage && selectedImage.index > 0) {
       const newIndex = selectedImage.index - 1;
       setSelectedImage({
@@ -31,9 +32,9 @@ function EventGallery({ images, eventTitle }) {
         alt: `${eventTitle} - Gallery ${newIndex + 1}`,
       });
     }
-  };
+  }, [selectedImage, images, eventTitle]);
 
-  const handleNextImage = () => {
+  const handleNextImage = useCallback(() => {
     if (selectedImage && selectedImage.index < images.length - 1) {
       const newIndex = selectedImage.index + 1;
       setSelectedImage({
@@ -42,6 +43,10 @@ function EventGallery({ images, eventTitle }) {
         alt: `${eventTitle} - Gallery ${newIndex + 1}`,
       });
     }
+  }, [selectedImage, images, eventTitle]);
+
+  const handleImageError = (e, index) => {
+    e.target.src = `https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop&crop=center`;
   };
 
   // Keyboard navigation for lightbox
@@ -74,7 +79,7 @@ function EventGallery({ images, eventTitle }) {
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [isLightboxOpen, selectedImage]);
+  }, [isLightboxOpen, handleNextImage, handlePrevImage]);
 
   if (!displayImages.length) {
     return null;
@@ -91,9 +96,12 @@ function EventGallery({ images, eventTitle }) {
               className={styles.galleryItem}
               onClick={() => handleImageClick(image, index)}
             >
-              <img
+              <Image
                 src={image}
                 alt={`${eventTitle} - Gallery ${index + 1}`}
+                width={400}
+                height={300}
+                style={{ objectFit: "cover" }}
                 onError={(e) => handleImageError(e, index)}
               />
               <div className={styles.galleryOverlay}>
@@ -156,9 +164,12 @@ function EventGallery({ images, eventTitle }) {
               </svg>
             </button>
 
-            <img
+            <Image
               src={selectedImage.src}
               alt={selectedImage.alt}
+              width={800}
+              height={600}
+              style={{ objectFit: "contain" }}
               className={styles.lightboxImage}
             />
 

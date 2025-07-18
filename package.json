@@ -7,6 +7,9 @@
     "start": "next start -p 3200",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@svgr/webpack": "^6.2.0",
     "axios": "^0.25.0",

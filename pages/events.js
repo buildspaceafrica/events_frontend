@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Layout } from "../components/Layout";
 import { Button } from "../components";
 import styles from "./events-page.module.scss";
@@ -28,10 +29,14 @@ export default function EventsPage() {
   const pastEvents = events.filter((event) => event.type === "past");
   const upcomingEvents = events.filter((event) => event.type === "upcoming");
 
+  const handleImageError = (e) => {
+    e.target.src = `https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop&crop=center`;
+  };
+
   return (
     <Layout
       title="Events - Buildspace Africa"
-      description="Discover past and upcoming Buildspace Africa events. Join our conferences, workshops, and community gatherings to advance Web3 adoption in Africa."
+      description={`Discover past and upcoming Buildspace Africa events. Join our conferences, workshops, and community gatherings to advance Web3 adoption in Africa.`}
     >
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -41,9 +46,7 @@ export default function EventsPage() {
               Our <span>Events</span>
             </h1>
             <p className={styles.heroDescription}>
-              Discover the events that are shaping Africa's Web3 future. From
-              conferences to workshops, we bring together the brightest minds in
-              blockchain technology.
+              {`Discover the events that are shaping Africa's Web3 future. From conferences to workshops, we bring together the brightest minds in blockchain technology.`}
             </p>
           </div>
         </div>
@@ -55,7 +58,7 @@ export default function EventsPage() {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Past Events</h2>
             <p className={styles.sectionSubtitle}>
-              Celebrating our journey in building Africa's Web3 community
+              {`Celebrating our journey in building Africa's Web3 community`}
             </p>
           </div>
 
@@ -63,10 +66,14 @@ export default function EventsPage() {
             {pastEvents.map((event) => (
               <div key={event.id} className={styles.eventCard}>
                 <div className={styles.eventImageWrapper}>
-                  <img
+                  <Image
                     src={event.image}
                     alt={event.title}
+                    width={600}
+                    height={400}
+                    style={{ objectFit: "cover" }}
                     className={styles.eventImage}
+                    onError={handleImageError}
                   />
                   <div className={styles.eventDate}>
                     <span>{event.date}</span>
@@ -103,7 +110,7 @@ export default function EventsPage() {
                   )}
 
                   <div className={styles.eventActions}>
-                    <Link href={`/events/${event.id}`}>
+                    <Link href={`/events/${event.id}`} passHref>
                       <Button type="primary" text="View Event Details" />
                     </Link>
                   </div>
@@ -120,7 +127,7 @@ export default function EventsPage() {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Upcoming Events</h2>
             <p className={styles.sectionSubtitle}>
-              Don't miss out on our future events and opportunities
+              {`Don't miss out on our future events and opportunities`}
             </p>
           </div>
 
@@ -132,9 +139,12 @@ export default function EventsPage() {
                   className={`${styles.eventCard} ${styles.upcomingCard}`}
                 >
                   <div className={styles.eventImageWrapper}>
-                    <img
+                    <Image
                       src={event.image}
                       alt={event.title}
+                      width={600}
+                      height={400}
+                      style={{ objectFit: "cover" }}
                       className={styles.eventImage}
                       onError={handleImageError}
                     />
@@ -163,7 +173,7 @@ export default function EventsPage() {
                     )}
 
                     <div className={styles.eventActions}>
-                      <Link href={`/events/${event.id}`}>
+                      <Link href={`/events/${event.id}`} passHref>
                         <Button type="primary" text="View Event Details" />
                       </Link>
                       <Button text="Get Notified" />
@@ -175,10 +185,9 @@ export default function EventsPage() {
           ) : (
             <div className={styles.noEvents}>
               <div className={styles.noEventsContent}>
-                <h3>Stay Tuned!</h3>
+                <h3>{`Stay Tuned!`}</h3>
                 <p>
-                  We're planning exciting new events. Follow us to be the first
-                  to know when registration opens.
+                  {`We're planning exciting new events. Follow us to be the first to know when registration opens.`}
                 </p>
                 <a
                   href="https://x.com/buildspaceafric"
@@ -195,10 +204,11 @@ export default function EventsPage() {
       <section className={styles.cta}>
         <div className="container">
           <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>Want to Speak at Our Events?</h2>
+            <h2
+              className={styles.ctaTitle}
+            >{`Want to Speak at Our Events?`}</h2>
             <p className={styles.ctaDescription}>
-              We're always looking for passionate Web3 builders and thought
-              leaders to share their knowledge with our community.
+              {`We're always looking for passionate Web3 builders and thought leaders to share their knowledge with our community.`}
             </p>
             <div className={styles.ctaActions}>
               <a
