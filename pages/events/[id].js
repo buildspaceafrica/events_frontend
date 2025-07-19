@@ -19,7 +19,7 @@ const events = [
     description:
       "The inaugural Buildspace Africa blockchain conference brought together Web3 enthusiasts, developers, and innovators from across the continent. This groundbreaking event featured talks on blockchain fundamentals, DeFi, NFTs, and the future of Web3 in Africa.",
     fullDescription:
-      "Our inaugural conference brought together over 200 participants from across the continent to explore the future of blockchain technology. It featured expert speakers, interactive sessions, and networking opportunities that shaped the Web3 landscape in Africa.",
+      "Our inaugural conference brought together ~200 participants from across the continent to explore the future of blockchain technology. It featured expert speakers, interactive sessions, and networking opportunities that shaped the Web3 landscape in Africa.",
     date: "January 29, 2022",
     time: "10:30 AM WAT",
     location: "Enugu, Nigeria",
@@ -27,7 +27,7 @@ const events = [
     youtubeId: "0bDdLOfNJck",
     image: "/images/events-2.jpg",
     highlights: [
-      "200+ attendees on-site and over 400 joining virtually via livestream from across Africa",
+      "170+ attendees on-site and over 400 joining virtually via livestream from across Africa",
       "6+ expert speakers sharing insights on Web3, NFTs, DeFi, and community building",
       "Practical Web3-focused sessions and discussions",
       "Networking opportunities with builders, creatives, and industry leaders",

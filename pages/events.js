@@ -16,7 +16,7 @@ const events = [
     youtubeId: "my-DR6xY_TA", // Using the existing YouTube ID from the codebase
     image: "/images/events-2.jpg",
     highlights: [
-      "200+ attendees on-site and over 400 joining virtually via livestream from across Africa",
+      "170+ physical attendees and over 400 joining virtually via livestream from across Africa",
       "6+ expert speakers sharing insights on Web3, NFTs, DeFi, and community building",
       "Practical Web3-focused sessions and discussions",
       "Networking opportunities with builders, creatives, and industry leaders",
