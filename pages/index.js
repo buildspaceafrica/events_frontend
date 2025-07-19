@@ -9,16 +9,16 @@ const teamMembers = [
   {
     id: 1,
     name: "Joshua Nwankwo",
-    role: "Co-organiser & Community lead",
+    role: "Founder & Community lead",
     image: "/images/josh.jpg",
-    bio: "Leads community growth and organizes developer-focused Web3 conferences and meetups across Africa.",
+    bio: "Leads strategic direction and community engagement, ensuring all initiatives align with our mission of empowering African Web3 developers",
   },
   {
     id: 2,
     name: "Nnaemeka Ezechi",
-    role: "Co-organiser & Technical Lead",
+    role: "Co-Founder & Technical Lead",
     image: "/images/somto.jpg",
-    bio: "Designs and runs our Web3 bootcamps and organizes Web3 conferences across Africa.",
+    bio: "Designs blockchain education programs and leads technical workshops, bootcamps, and Web3 conferences across Africa",
   },
   {
     id: 3,
@@ -32,7 +32,14 @@ const teamMembers = [
     name: "Ifedili Onyegbu",
     role: "Blockchain Developer",
     image: "/images/sauce.jpg",
-    bio: "Educates developers on smart contract development and security through workshops and training sessions.",
+    bio: "Leads smart contract development education and security training through hands-on workshops and mentorship programs.",
+  },
+  {
+    id: 5,
+    name: "Richmond Ohalewe",
+    role: "Brand & Product Designer",
+    image: "/images/richmond.jpg",
+    bio: "Creates visual content and manages design for branding, events, and digital media.",
   },
 ];
 

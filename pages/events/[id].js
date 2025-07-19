@@ -60,6 +60,8 @@ const events = [
       },
     ],
     gallery: [
+      "/images/events.jpg",
+      "/images/events-14.jpg",
       "/images/events-1.jpg",
       "/images/events-2.jpg",
       "/images/events-3.jpg",
@@ -67,8 +69,9 @@ const events = [
       "/images/events-5.jpg",
       "/images/events-6.jpg",
       "/images/events-7.jpg",
+      "/images/events-15.jpg",
+      "/images/events-17.jpg",
       "/images/events-8.jpg",
-      "/images/events-9.jpg",
       "/images/events-10.jpg",
     ],
     agenda: [
